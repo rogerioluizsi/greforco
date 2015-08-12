@@ -6,7 +6,8 @@
     <g:layoutHead/>
 </head>
 <body>
-    <g:layoutBody/>
+%{-- 	<g:render template="/layouts/navbar"/>
+ --}%    <g:layoutBody/>
     <asset:javascript src="application.js"/>
 </body>
 </html>

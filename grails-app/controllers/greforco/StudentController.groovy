@@ -4,6 +4,10 @@ package greforco
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import greforco.User
+import greforco.UserRole
+
 
 @Transactional(readOnly = true)
 class StudentController {
@@ -103,12 +107,12 @@ class StudentController {
     }
 
     /*nova conta = Cria um usuario e se torna um aluno*/
-
-    def novaConta () {
-        respond new Student(params) //ja n tem o create?
+    @Secured(['permitAll'])
+    def sign_up () {
+        respond new Student(params) 
 
     }
-
+    @Secured(['permitAll'])
     @Transactional
     def saveNovaConta(Student studentInstance) {          
         
@@ -143,13 +147,13 @@ class StudentController {
         }   
 
         if (studentInstance.hasErrors()) {
-            respond studentInstance.errors, view:'index'
+            respond studentInstance.errors, view:'sign_up'
             return
         }
         
         //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
 
-        render(view:"index")
+        render(view:"sing_upSucess")
 
     }
 }
