@@ -133,6 +133,16 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
-	'/**/favicon.ico':  ['permitAll']
+	'/**/favicon.ico':  ['permitAll'],
+//liberar acesso admin para todos os controladores
+    '/areaofknowledge/**':        ['ROLE_ADMIN'],
+    '/contact/**':                ['ROLE_ADMIN'],
+    '/course/**':                 ['ROLE_ADMIN'],
+    '/enrollment/**':             ['ROLE_ADMIN'],
+    '/matter/**':                 ['ROLE_ADMIN'],
+    '/recommendation/**':         ['ROLE_ADMIN'],
+    '/student/**':                ['ROLE_ADMIN'],
+    '/teacher/**':                ['ROLE_ADMIN']
+
 ]
 
