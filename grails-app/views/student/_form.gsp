@@ -29,6 +29,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'email', 'error')} required">
+	<label for="email">
+		<g:message code="student.email.label" default="Email" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="email" required="" value="${studentInstance?.email}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'fone', 'error')} required">
 	<label for="fone">
 		<g:message code="student.fone.label" default="Fone" />
@@ -53,6 +62,24 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="name" required="" value="${studentInstance?.name}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'password', 'error')} required">
+	<label for="password">
+		<g:message code="student.password.label" default="Password" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="password" required="" value="${studentInstance?.password}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'confirmPassword', 'error')} required">
+	<label for="confirmPassword">
+		<g:message code="student.confirmPassword.label" default="confirmPassword" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="confirmPassword" required=""/>
 
 </div>
 
@@ -83,14 +110,14 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'user', 'error')} required">
+%{-- <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'user', 'error')} required">
 	<label for="user">
 		<g:message code="student.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="user" name="user.id" from="${greforco.User.list()}" optionKey="id" required="" value="${studentInstance?.user?.id}" class="many-to-one"/>
 
-</div>
+</div> --}%
 
 <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'whatsapp', 'error')} required">
 	<label for="whatsapp">

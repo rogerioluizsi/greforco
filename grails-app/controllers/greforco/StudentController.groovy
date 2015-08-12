@@ -101,4 +101,55 @@ class StudentController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    /*nova conta = Cria um usuario e se torna um aluno*/
+
+    def novaConta () {
+        respond new Student(params) //ja n tem o create?
+
+    }
+
+    @Transactional
+    def saveNovaConta(Student studentInstance) {          
+        
+        if (!params.password.equals(params.confirmPassword)) {
+            flash.error = 'Senha e a confirmação de senha não são iguais'
+            //respond view:'create'
+            return
+        }
+        
+        if (studentInstance == null) {
+            notFound()
+            return
+        }   
+
+
+        studentInstance.withTransaction{status ->
+            try{        
+                Role role = Role.findByAuthority("ROLE_ADMIN")
+                User user = new User(username: params.email, password:params.password, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
+                UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
+                studentInstance.user = user
+                studentInstance.save(flush:true, failOnError:true)               
+            }catch(Exception exp){
+                studentInstance.errors.reject(
+                    'studentInstance.email.inuse',
+                    ["${params.email}"].toArray() as Object[],
+                    'O email [{0}] já esta cadastrado!!!'
+                )               
+                // println "deu erro de email"
+                status.setRollbackOnly()
+            }
+        }   
+
+        if (studentInstance.hasErrors()) {
+            respond studentInstance.errors, view:'index'
+            return
+        }
+        
+        //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
+
+        render(view:"index")
+
+    }
 }

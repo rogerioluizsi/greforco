@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'student.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="fone" title="${message(code: 'student.fone.label', default: 'Fone')}" />
+						<g:sortableColumn property="email" title="${message(code: 'student.email.label', default: 'Email')}" />
 					
-						<g:sortableColumn property="gender" title="${message(code: 'student.gender.label', default: 'Gender')}" />
+						<g:sortableColumn property="fone" title="${message(code: 'student.fone.label', default: 'Fone')}" />
 					
 					</tr>
 				</thead>
@@ -50,12 +50,19 @@
 					
 						<td><g:formatDate date="${studentInstance.dateCreated}" /></td>
 					
-						<td>${fieldValue(bean: studentInstance, field: "fone")}</td>
+						<td>${fieldValue(bean: studentInstance, field: "email")}</td>
 					
-						<td>${fieldValue(bean: studentInstance, field: "gender")}</td>
+						<td>${fieldValue(bean: studentInstance, field: "fone")}</td>
 					
 					</tr>
 				</g:each>
+				<g:hasErrors bean="${studentInstance}">
+			<ul class="errors" role="alert">
+				<g:eachError bean="${studentInstance}" var="error">
+				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+				</g:eachError>
+			</ul>
+			</g:hasErrors>
 				</tbody>
 			</table>
 			<div class="pagination">

@@ -59,6 +59,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${studentInstance?.email}">
+				<li class="fieldcontain">
+					<span id="email-label" class="property-label"><g:message code="student.email.label" default="Email" /></span>
+					
+						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${studentInstance}" field="email"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${studentInstance?.fone}">
 				<li class="fieldcontain">
 					<span id="fone-label" class="property-label"><g:message code="student.fone.label" default="Fone" /></span>
@@ -82,6 +91,15 @@
 					<span id="name-label" class="property-label"><g:message code="student.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${studentInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${studentInstance?.password}">
+				<li class="fieldcontain">
+					<span id="password-label" class="property-label"><g:message code="student.password.label" default="Password" /></span>
+					
+						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${studentInstance}" field="password"/></span>
 					
 				</li>
 				</g:if>
