@@ -1,11 +1,22 @@
 package greforco
 
 class Student {
-	//static belongsTo = [user: User]
-	String id
-	Date dateCreated
+	
+	
+	  Date dateCreated
 
+	  String name
+	  String cpf
+	  String scholarity
+	  String fone
+	  String whatsapp
+	  String skype
+	  String gender
+	  String addrress
+	  String city
+	  String state
 
     static constraints = {
     }
+    static belongsTo = [user: User]
 }
