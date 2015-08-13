@@ -29,6 +29,7 @@
 						<g:sortableColumn property="formation" title="${message(code: 'teacher.formation.label', default: 'Formation')}" />
 					
 						<g:sortableColumn property="university" title="${message(code: 'teacher.university.label', default: 'University')}" />
+						<g:sortableColumn property="user" title="${message(code: 'teacher.user.label', default: 'User')}" />
 					
 					</tr>
 				</thead>
@@ -41,6 +42,8 @@
 						<td>${fieldValue(bean: teacherInstance, field: "formation")}</td>
 					
 						<td>${fieldValue(bean: teacherInstance, field: "university")}</td>
+
+						<td>${fieldValue(bean: teacherInstance, field: "user")}</td>
 					
 					</tr>
 				</g:each>

@@ -9,6 +9,7 @@ class BootStrap {
 
       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
       def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+      def profRole = new Role(authority: 'ROLE_PROF').save(flush: true)
 
       def testUser = new User(username: 'admin', password: 'admin')
       testUser.save(flush: true)
@@ -16,7 +17,7 @@ class BootStrap {
       UserRole.create testUser, adminRole, true
 
       assert User.count() == 1
-      assert Role.count() == 2
+      assert Role.count() == 3
       assert UserRole.count() == 1
    }
     def destroy = {

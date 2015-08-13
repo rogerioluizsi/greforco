@@ -127,6 +127,7 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'greforco.UserR
 grails.plugin.springsecurity.authority.className = 'greforco.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
+    '/home/**':                ['permitAll'],
 	'/index':           ['permitAll'],
 	'/index.gsp':       ['permitAll'],
 	'/assets/**':       ['permitAll'],
@@ -138,14 +139,14 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/user/**':         ['permitAll'],
     '/role/**':         ['permitAll'],
 //liberar acesso admin para todos os controladores
-    '/areaofknowledge/**':        ['ROLE_ADMIN'],
-    '/contact/**':                ['ROLE_ADMIN'],
-    '/course/**':                 ['ROLE_ADMIN'],
-    '/enrollment/**':             ['ROLE_ADMIN'],
-    '/matter/**':                 ['ROLE_ADMIN'],
-    '/recommendation/**':         ['ROLE_ADMIN'],
-    '/student/**':                ['ROLE_ADMIN'],
-    '/teacher/**':                ['ROLE_ADMIN']
+    '/areaofknowledge/**':       ['ROLE_ADMIN', 'ROLE_USER'],
+    '/contact/**':               ['ROLE_ADMIN', 'ROLE_USER'],
+    '/course/**':                ['ROLE_ADMIN', 'ROLE_USER'],
+    '/enrollment/**':            ['ROLE_ADMIN', 'ROLE_USER'],
+    '/matter/**':                ['ROLE_ADMIN', 'ROLE_USER'],
+    '/recommendation/**':        ['ROLE_ADMIN', 'ROLE_USER'],
+    '/student/**':               ['ROLE_ADMIN', 'ROLE_USER'],
+    '/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER'],
 
 ]
 

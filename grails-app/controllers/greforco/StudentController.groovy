@@ -129,7 +129,7 @@ class StudentController {
         
         studentInstance.withTransaction{status ->
             try{        
-                Role role = Role.findByAuthority("ROLE_ADMIN")
+                Role role = Role.findByAuthority("ROLE_USER")
                 println "role"
                 User user = new User(username: params.email, password:params.password, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
                   println "user"

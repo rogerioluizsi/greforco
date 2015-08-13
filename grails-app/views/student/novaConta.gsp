@@ -23,7 +23,7 @@
 				</fieldset>
 				<div class="form-actions margin-top-medium">
 					<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-					<g:link controller='inicio' action="index">    
+					<g:link controller='home' action="index">    
    						<input type="button"  class="btn btn-default" value="Cancelar" class="button"/> 
 					</g:link>
 				</div>

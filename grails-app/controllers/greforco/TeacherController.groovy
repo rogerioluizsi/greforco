@@ -4,9 +4,18 @@ package greforco
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.*
+import greforco.Role
+import greforco.UserRole
+import greforco.User
+
+
 
 @Transactional(readOnly = true)
 class TeacherController {
+
+     def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -35,6 +44,10 @@ class TeacherController {
             return
         }
 
+        def user = springSecurityService.currentUser // torna-se professor ligado ao usuario
+        teacherInstance.user = user
+        //Role role = Role.findByAuthority("ROLE_PROF") //dar permiss~ao de professor, acumulando a de user
+        //UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
         teacherInstance.save flush:true
 
         request.withFormat {
@@ -101,4 +114,27 @@ class TeacherController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    //@Transactional
+    //  def NovoTeacher() {
+    //     respond new Teacher(params)
+    // }
+
+    // @Transactional
+    // def saveNovoTeacher (teacherInstance)
+
+
+    //     teacherInstance.withTransaction{status ->
+    //         try{        
+    //             def user = springSecurityService.currentUser
+    //             teacherInstance.user = user
+    //             teacherInstance.save(flush:true, failOnError:true)               
+    //         }catch(Exception exp){
+    //             studentInstance.errors.reject(
+    //                 'teacher.user.id.inuse',
+    //                 ["${params.user.id}"].toArray() as Object[],
+    //                 'Voce ja e um professor!!!'
+    //             )               
+    //             status.setRollbackOnly()
+    //         }
+    //     }   
 }
