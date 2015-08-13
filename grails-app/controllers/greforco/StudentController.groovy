@@ -150,7 +150,7 @@ class StudentController {
         
         //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
 
-        render(view:"confimaNovaConta")
+        render(view:"confirmaNovaConta")
 
     }
 }

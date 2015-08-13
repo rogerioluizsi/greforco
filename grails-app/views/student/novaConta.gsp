@@ -17,7 +17,7 @@
 			</ul>
 			</g:hasErrors>
 			
-			<g:form class="form-horizontal" url="[resource:pessoaInstance, action:'saveNovaConta']" >
+			<g:form class="form-horizontal" url="[resource:studentInstance, action:'saveNovaConta']" >
 				<fieldset class="form">
 					<g:render template="form-nova-conta"/>
 				</fieldset>
