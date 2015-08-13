@@ -76,6 +76,7 @@
 					
 				</li>
 				</g:if>
+				
 			
 			</ol>
 			<g:form url="[resource:userInstance, action:'delete']" method="DELETE">

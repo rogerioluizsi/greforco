@@ -43,17 +43,32 @@ class TeacherController {
             respond teacherInstance.errors, view:'create'
             return
         }
+        teacherInstance.withTransaction{status ->
+        try{        
+            def user = springSecurityService.currentUser // torna-se professor ligado ao usuario
+            Role role = Role.findByAuthority("ROLE_PROF") //dar permiss~ao de professor, acumulando a de user
+            println "role"
+            UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
+            teacherInstance.user = user
+            println "app role"
+            teacherInstance.save flush:true
+            }catch(Exception exp){
+                teacherInstance.errors.reject(
+                    'teacherInstance.user.id.inuse',
+                     //["${params.formation}"].toArray() as Object[],
+                    //'professor'
+                    render(view:"create")
+                )               
+                status.setRollbackOnly()
 
-        def user = springSecurityService.currentUser // torna-se professor ligado ao usuario
-        teacherInstance.user = user
-        //Role role = Role.findByAuthority("ROLE_PROF") //dar permiss~ao de professor, acumulando a de user
-        //UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
-        teacherInstance.save flush:true
+            }
+           
+        }   
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'teacher.label', default: 'Teacher'), teacherInstance.id])
-                redirect teacherInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'teacher.label', default: 'Teacher'), params.id])
+                redirect action: "index", method: "GET"
             }
             '*' { respond teacherInstance, [status: CREATED] }
         }
