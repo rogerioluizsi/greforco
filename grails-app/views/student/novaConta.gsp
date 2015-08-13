@@ -9,9 +9,9 @@
 	<body>
 		<section id="nova-conta-pessoa" class="first">
 
-			<g:hasErrors bean="${pessoaInstance}">
-			<ul class="alert alert-warning" role="alert">
-				<g:eachError bean="${pessoaInstance}" var="error">
+			<g:hasErrors bean="${studentInstance}">
+			<ul class="errors" role="alert">
+				<g:eachError bean="${studentInstance}" var="error">
 				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 				</g:eachError>
 			</ul>

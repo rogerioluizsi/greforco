@@ -135,9 +135,9 @@ class StudentController {
                 studentInstance.save(flush:true, failOnError:true)               
             }catch(Exception exp){
                 studentInstance.errors.reject(
-                    'studentInstance.cpf.inuse',
+                    'studentInstance.email.inuse',
                     ["${params.email}"].toArray() as Object[],
-                    'O CPF [{0}] já esta cadastrado!!!'
+                    'O E-mail [{0}] já esta cadastrado!!!'
                 )               
                 status.setRollbackOnly()
             }
@@ -150,7 +150,7 @@ class StudentController {
         
         //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
 
-        render(view:"index")
+        render(view:"confimaNovaConta")
 
     }
 }
