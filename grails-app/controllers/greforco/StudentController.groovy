@@ -4,6 +4,10 @@ package greforco
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
+import greforco.User
+import greforco.Role
+import greforco.UserRole
 
 @Transactional(readOnly = true)
 class StudentController {
@@ -100,5 +104,56 @@ class StudentController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    @Secured(['permitAll'])
+    def novaConta() {
+        respond new Student(params)
+    }
+    
+    @Secured(['permitAll'])
+    @Transactional
+    def saveNovaConta(Student studentInstance) {          
+        
+        if (!params.password.equals(params.confirmPassword)) {
+            flash.error = 'Senha e a confirmação de senha não são iguais'
+            respond view:'novaConta'
+            return
+        }
+        
+        if (studentInstance == null) {
+            notFound()
+            return
+        }   
+
+        
+        studentInstance.withTransaction{status ->
+            try{        
+                Role role = Role.findByAuthority("ROLE_ADMIN")
+                println "role"
+                User user = new User(username: params.email, password:params.password, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
+                  println "user"
+                UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
+                studentInstance.user = user
+                studentInstance.save(flush:true, failOnError:true)               
+            }catch(Exception exp){
+                studentInstance.errors.reject(
+                    'studentInstance.email.inuse',
+                    ["${params.email}"].toArray() as Object[],
+                    'O E-mail [{0}] já esta cadastrado!!!'
+                )               
+                status.setRollbackOnly()
+            }
+        }   
+
+        if (studentInstance.hasErrors()) {
+            respond studentInstance.errors, view:'novaConta'
+            return
+        }
+        
+        //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
+
+        render(view:"confirmaNovaConta")
+
     }
 }
