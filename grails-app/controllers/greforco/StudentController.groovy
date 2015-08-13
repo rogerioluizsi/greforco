@@ -115,10 +115,11 @@ class StudentController {
     @Transactional
     def saveNovaConta(Student studentInstance) {          
         
-        // if (!params.senha.equals(params.confirmarSenha)) {
-        //     flash.error = 'Senha e a confirmação de senha não são iguais'
-        //     respond view:'novaConta'
-        // }
+        if (!params.password.equals(params.confirmPassword)) {
+            flash.error = 'Senha e a confirmação de senha não são iguais'
+            respond view:'novaConta'
+            return
+        }
         
         if (studentInstance == null) {
             notFound()
@@ -129,7 +130,9 @@ class StudentController {
         studentInstance.withTransaction{status ->
             try{        
                 Role role = Role.findByAuthority("ROLE_ADMIN")
-                User user = new User(username: params.email, password:params.senha, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
+                println "role"
+                User user = new User(username: params.email, password:params.password, enabled: true, accountExpired: false, accountLocked: false, passwordExpired: false).save(flush:true, failOnError:true)
+                  println "user"
                 UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
                 studentInstance.user = user
                 studentInstance.save(flush:true, failOnError:true)               

@@ -15,7 +15,7 @@ class Student {
 	  String addrress
 	  String city
 	  String state
-	  
+
 
 
     static constraints = {
@@ -23,6 +23,11 @@ class Student {
 		gender(nullable:true, blank:true)
 		scholarity(nullable:true, blank:true)
 		user(nullable:true, blank:true)
+		fone(nullable:true, blank:true)
+		skype(nullable:true, blank:true)
+		addrress(nullable:true, blank:true)
+		city (nullable:true, blank:true)
+		state(nullable:true, blank:true)
 
 
     }

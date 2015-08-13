@@ -1,102 +1,126 @@
 <%@ page import="greforco.Student" %>
 
-
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'addrress', 'error')} required">
-	<label for="addrress">
-		<g:message code="student.addrress.label" default="Addrress" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="addrress" required="" value="${studentInstance?.addrress}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'city', 'error')} required">
-	<label for="city">
-		<g:message code="student.city.label" default="City" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="city" required="" value="${studentInstance?.city}"/>
-
-</div>
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'state', 'error')} required">
-	<label for="email">
-		<g:message code="student.email.label" default="E-mail" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="email" required="" value="${studentInstance?.email}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'cpf', 'error')} required">
-	<label for="cpf">
-		<g:message code="student.cpf.label" default="Cpf" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="cpf" required="" value="${studentInstance?.cpf}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'fone', 'error')} required">
-	<label for="fone">
-		<g:message code="student.fone.label" default="Fone" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="fone" required="" value="${studentInstance?.fone}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'gender', 'error')} required">
-	<label for="gender">
-		<g:message code="student.gender.label" default="Gender" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="gender" required="" value="${studentInstance?.gender}"/>
-
-</div>
+<fieldset>
+	<legend> Identificaçao </legend>
 
 <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'name', 'error')} required">
-	<label for="name">
+	<label for="name" class="control-label">
 		<g:message code="student.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" required="" value="${studentInstance?.name}"/>
+	<g:textField class="form-control" name="name" required="" value="${studentInstance?.name}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'scholarity', 'error')} required">
-	<label for="scholarity">
-		<g:message code="student.scholarity.label" default="Scholarity" />
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'email', 'error')} required">
+	<label for="email" class="control-label">
+		<g:message code="student.email.label" default="Email" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="scholarity" required="" value="${studentInstance?.scholarity}"/>
+	<g:textField class="form-control" name="email" required="" value="${studentInstance?.email}"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'skype', 'error')} required">
-	<label for="skype">
-		<g:message code="student.skype.label" default="Skype" />
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'cpf', 'error')} required">
+	<label for="cpf" class="control-label">
+		<g:message code="student.cpf.label" default="Cpf" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="skype" required="" value="${studentInstance?.skype}"/>
+	<g:textField class="form-control" name="cpf" required="" value="${studentInstance?.cpf}"/>
+
+</div>
+</fieldset>
+<fieldset>
+	<legend> Contato </legend>
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'city', 'error')} ">
+	<label for="city" class="control-label">
+		<g:message code="student.city.label" default="City" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="city"  value="${studentInstance?.city}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'state', 'error')} required">
-	<label for="state">
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'addrress', 'error')} ">
+	<label for="addrress" class="control-label">
+		<g:message code="student.addrress.label" default="Addrress" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="addrress"  value="${studentInstance?.addrress}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'state', 'error')} ">
+	<label for="state" class="control-label">
 		<g:message code="student.state.label" default="State" />
-		<span class="required-indicator">*</span>
+		%{-- <span class="required-indicator">*</span> --}%
 	</label>
-	<g:textField name="state" required="" value="${studentInstance?.state}"/>
+	<g:textField class="form-control" name="state" value="${studentInstance?.state}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: pessoaInstance, field: 'senha', 'error')} required">
-		<label for="senha" class="control-label">
-			<g:message code="pessoa.senha.label" default="Senha" />
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'fone', 'error')} ">
+	<label for="fone" class="control-label">
+		<g:message code="student.fone.label" default="Fone" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="fone" value="${studentInstance?.fone}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'gender', 'error')} ">
+	<label for="gender" class="control-label">
+		<g:message code="student.gender.label" default="Gender" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="gender" value="${studentInstance?.gender}"/>
+
+</div>
+
+
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'scholarity', 'error')} ">
+	<label for="scholarity" class="control-label">
+		<g:message code="student.scholarity.label" default="Scholarity" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="scholarity" value="${studentInstance?.scholarity}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'skype', 'error')} ">
+	<label for="skype" class="control-label"> 
+		<g:message code="student.skype.label" default="Skype" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="skype" value="${studentInstance?.skype}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'whatsapp', 'error')} ">
+	<label for="whatsapp" class="control-label">
+		<g:message code="student.whatsapp.label" default="Whatsapp" />
+		%{-- <span class="required-indicator">*</span> --}%
+	</label>
+	<g:textField class="form-control" name="whatsapp" value="${studentInstance?.whatsapp}"/>
+
+</div>
+
+
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'password', 'error')} required">
+		<label for="password" class="control-label">
+			<g:message code="student.password.label" default="Senha" />
 			<span class="required-indicator">*</span>
 		</label>
-		<g:textField name="senha" required="" value="${studentInstance?.state}"/>
+		<g:passwordField class="form-control" type = 'senha'  name="password" required="" />
+</div>
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'confirmPassword', 'error')} required">
+		<label for="confirmPassword" class="control-label">
+			<g:message code="student.confirmPassword.label" default="Confirma Senha" />
+			<span class="required-indicator">*</span>
+		</label>
+		<g:passwordField class="form-control"  type= "confirmPassword" name="confirmPassword" required="" />
 </div>
 
 %{-- <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'user', 'error')} required">
@@ -108,12 +132,6 @@
 
 </div> --}%
 
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'whatsapp', 'error')} required">
-	<label for="whatsapp">
-		<g:message code="student.whatsapp.label" default="Whatsapp" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="whatsapp" required="" value="${studentInstance?.whatsapp}"/>
 
-</div>
 
+</fieldset>
