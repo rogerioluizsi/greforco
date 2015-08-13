@@ -126,7 +126,7 @@ class StudentController {
             notFound()
             return
         }   
-        
+
 
         studentInstance.withTransaction{status ->
             try{        
@@ -141,7 +141,7 @@ class StudentController {
                     ["${params.email}"].toArray() as Object[],
                     'O email [{0}] já esta cadastrado!!!'
                 )               
-                 println "deu erro de email"
+                // println "deu erro de email"
                 status.setRollbackOnly()
             }
         }   
@@ -150,10 +150,10 @@ class StudentController {
             respond studentInstance.errors, view:'sign_up'
             return
         }
+        
+        //flash.message = 'Conta criado com sucesso. Use seu cpf para fazer login'
 
-                
-      render (view : "saveNovaContaold")
-
+        render(view:"sing_upSucess")
 
     }
 }
