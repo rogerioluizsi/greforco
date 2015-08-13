@@ -6,6 +6,13 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
+		<g:hasErrors bean="${studentInstance}">
+			<ul class="errors" role="alert">
+				<g:eachError bean="${studentInstance}" var="error">
+				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+				</g:eachError>
+			</ul>
+			</g:hasErrors>
 		<a href="#create-student" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -21,7 +28,7 @@
 			
 			<g:form url="[resource:studentInstance, action:'saveNovaConta']" >
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="form_sign_up"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
