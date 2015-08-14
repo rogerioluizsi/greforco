@@ -7,16 +7,18 @@
 		<title>Reforco</title>		
 	</head>
 
-${sec.username()}
+${sec.username()}, seja bem vindo! <br><br><br>
 %{-- <sec:ifAnyGranted roles= "ROLE_PROF">
 
 <g:link controller='course' action="create", id="${teacherInstance.id}">    
 	<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
 </g:link>
 </sec:ifAnyGranted> --}%
+Aqui deverao vir as informaçoes e dados que nao dependem da sessao do usuario(proessores, cursos disponiveis) e apenas links para os perfis. Pois todos poderao acessar essa pagina. Toda via, pode haver conteudo dinamico, para os logados e n~ao logados - apenas n pode utilizar dados da sessao. <br><br>
+
+Quem ainda nao e professor, aparecera um botao pra ele se tornar
 
 <sec:ifAnyGranted roles= "ROLE_USER">
-
 
 %{-- /*info para quem estiver logado */ --}%
 <sec:ifNotGranted  roles="ROLE_PROF">
@@ -42,6 +44,21 @@ ${sec.username()}
 				<i class="glyphicon glyphicon-off"></i>
 				Sair
 </a></li>
+
+<g:link controller='home' action="perfil">    
+	<input type="button"  class="btn btn-default" value="Acesse seu perfil" class="button"/> 
+</g:link>
+
+
 </sec:ifLoggedIn>
+
+<g:link controller='teacher' action="index">    
+	<input type="button"  class="btn btn-default" value="Veja todos os nossos professores" class="button"/> 
+</g:link>
+
+<g:link controller='course' action="index">    
+	<input type="button"  class="btn btn-default" value="Veja todos os nossos cursos" class="button"/> 
+</g:link>
+
 </html>
 

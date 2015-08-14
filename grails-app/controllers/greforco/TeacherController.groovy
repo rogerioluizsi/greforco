@@ -77,11 +77,11 @@ class TeacherController {
             }
            
         }   
-
+      
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'teacher.label', default: 'Teacher'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "afterTeacher", method: "GET"
             }
             '*' { respond teacherInstance, [status: CREATED] }
         }
@@ -132,6 +132,8 @@ class TeacherController {
             '*'{ render status: NO_CONTENT }
         }
     }
+    def afterTeacher(){}
+  
 
     protected void notFound() {
         request.withFormat {
