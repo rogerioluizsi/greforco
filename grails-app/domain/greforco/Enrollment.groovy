@@ -9,5 +9,8 @@ class Enrollment {
 
 
     static constraints = {
+    	evaluation(nullable:true, blank:true)
+    	student(nullable:true, blank:true)
+
     }
 }

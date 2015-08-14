@@ -8,6 +8,9 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class EnrollmentController {
 
+    def springSecurityService
+
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -34,7 +37,9 @@ class EnrollmentController {
             respond enrollmentInstance.errors, view:'create'
             return
         }
-
+        def user = springSecurityService.currentUser
+        Student student = Student.findByUser(user)
+        enrollmentInstance.student = student
         enrollmentInstance.save flush:true
 
         request.withFormat {
