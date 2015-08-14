@@ -14,6 +14,11 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<sec:ifAnyGranted roles= "ROLE_PROF">
+					<g:link controller='course' action="create", id="${teacherInstance.id}">    
+					<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
+					</g:link>
+				</sec:ifAnyGranted>
 			</ul>
 		</div>
 		<div id="show-teacher" class="content scaffold-show" role="main">

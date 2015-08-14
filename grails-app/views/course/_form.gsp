@@ -38,14 +38,14 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} required">
+%{-- <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} required">
 	<label for="teacher">
 		<g:message code="course.teacher.label" default="Teacher" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="teacher" name="teacher.id" from="${greforco.Teacher.list()}" optionKey="id" required="" value="${courseInstance?.teacher?.id}" class="many-to-one"/>
 
-</div>
+</div> --}%
 
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'value', 'error')} required">
 	<label for="value">

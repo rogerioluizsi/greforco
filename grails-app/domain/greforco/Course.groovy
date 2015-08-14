@@ -13,6 +13,16 @@ class Course {
 	Date dateCreated
 
 
+	Course(String name, String description, String value, Matter matter, String evaluation) {
+		this()
+		this.name = name
+		this.description = description
+		this.evaluation = evaluation
+		this.matter = matter
+		this.value = value 
+	}
+
+
     static constraints = {
     }
 }

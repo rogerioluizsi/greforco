@@ -5,6 +5,14 @@ class Matter {
 	String name
 	String description
 	Date dateCreated
+
+	Matter(Areaofknowledge areaofknowledge, String name, String description) {
+		this()
+		this.areaofknowledge = areaofknowledge
+		this.name = name
+		this.description = description
+	}
+
     static constraints = {
     }
 }

@@ -4,7 +4,7 @@ package greforco
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-
+import greforco.Teacher
 @Transactional(readOnly = true)
 class CourseController {
 
@@ -34,7 +34,9 @@ class CourseController {
             respond courseInstance.errors, view:'create'
             return
         }
-
+        Teacher teacher = Teacher.findById(params.id)
+        println teacher 
+        courseInstance.teacher = teacher
         courseInstance.save flush:true
 
         request.withFormat {

@@ -8,12 +8,12 @@
 	</head>
 
 ${sec.username()}
-<sec:ifAnyGranted roles= "ROLE_PROF">
+%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
 
-<g:link controller='course' action="create">    
+<g:link controller='course' action="create", id="${teacherInstance.id}">    
 	<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
 </g:link>
-</sec:ifAnyGranted>
+</sec:ifAnyGranted> --}%
 
 <sec:ifAnyGranted roles= "ROLE_USER">
 
