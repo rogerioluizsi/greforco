@@ -85,6 +85,15 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${courseInstance?.teacher}">
+				<li class="fieldcontain">
+					<span id="user-label" class="property-label"><g:message code="course.teacher.label" default="Teacher" /></span>
+					
+						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${courseInstance?.teacher?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
 			
 			</ol>
 			<g:form url="[resource:courseInstance, action:'delete']" method="DELETE">

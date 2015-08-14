@@ -5,8 +5,13 @@ package greforco
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import greforco.Teacher
+import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.*
+import greforco.User
+
 @Transactional(readOnly = true)
 class CourseController {
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -34,8 +39,8 @@ class CourseController {
             respond courseInstance.errors, view:'create'
             return
         }
-        Teacher teacher = Teacher.findById(params.id)
-        println teacher 
+        def user = springSecurityService.currentUser
+        Teacher teacher = Teacher.findByUser(user)
         courseInstance.teacher = teacher
         courseInstance.save flush:true
 

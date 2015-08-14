@@ -35,7 +35,7 @@ class TeacherController {
          println "pegou os dados"
         if (teacher != null) {
             def id = teacher.id
-            flash.message = 'Voce ja e um professor, mantenha seu perfil atualizado'
+            flash.message = "${sec.username()}, " + 'voce ja e um professor, mantenha seu perfil atualizado'
             redirect action: "show", id: id, method: "GET"
         } 
         

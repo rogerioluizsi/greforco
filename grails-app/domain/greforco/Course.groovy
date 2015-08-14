@@ -24,5 +24,6 @@ class Course {
 
 
     static constraints = {
+    	teacher(nullable:true, blank:true)
     }
 }
