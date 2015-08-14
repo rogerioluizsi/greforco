@@ -29,7 +29,17 @@ class TeacherController {
     }
 
     def create() {
-        respond new Teacher(params)
+        println "CREATE"
+        def user = springSecurityService.currentUser
+        Teacher teacher = Teacher.findByUser(user)
+         println "pegou os dados"
+        if (teacher != null) {
+            def id = teacher.id
+            redirect action: "show", id: id, method: "GET"
+        } 
+        
+         respond new Teacher(params)
+               
     }
 
     @Transactional
@@ -47,10 +57,11 @@ class TeacherController {
         try{        
             def user = springSecurityService.currentUser // torna-se professor ligado ao usuario
             Role role = Role.findByAuthority("ROLE_PROF") //dar permiss~ao de professor, acumulando a de user
-            println "role"
+              println "role"
             UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
+              println "app role"
             teacherInstance.user = user
-            println "app role"
+           
             teacherInstance.save flush:true
             }catch(Exception exp){
                 teacherInstance.errors.reject(

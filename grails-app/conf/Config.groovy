@@ -125,9 +125,13 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'greforco.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'greforco.UserRole'
 grails.plugin.springsecurity.authority.className = 'greforco.Role'
+// grails.plugin.springsecurity.roleHierarchy = '''
+//    ROLE_ADMIN > ROLE_PROF
+//    ROLE_PROF > ROLE_USER
+//    '''
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
-    '/home/**':                ['permitAll'],
+    '/home/**':         ['permitAll'],
 	'/index':           ['permitAll'],
 	'/index.gsp':       ['permitAll'],
 	'/assets/**':       ['permitAll'],
@@ -137,16 +141,19 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':  ['permitAll'],
     //liberar criacao de usuario
     '/user/**':         ['permitAll'],
+     '/userrole/**':         ['permitAll'],
     '/role/**':         ['permitAll'],
 //liberar acesso admin para todos os controladores
-    '/areaofknowledge/**':       ['ROLE_ADMIN', 'ROLE_USER'],
-    '/contact/**':               ['ROLE_ADMIN', 'ROLE_USER'],
-    '/course/**':                ['ROLE_ADMIN', 'ROLE_USER'],
-    '/enrollment/**':            ['ROLE_ADMIN', 'ROLE_USER'],
-    '/matter/**':                ['ROLE_ADMIN', 'ROLE_USER'],
-    '/recommendation/**':        ['ROLE_ADMIN', 'ROLE_USER'],
-    '/student/**':               ['ROLE_ADMIN', 'ROLE_USER'],
-    '/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER'],
+    '/areaofknowledge/**':       ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/contact/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/course/**':                ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/enrollment/**':            ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/matter/**':                ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/recommendation/**':        ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/student/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/teacher/**':               ['permitAll'],
+    //'/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER'],
+
 
 ]
 
