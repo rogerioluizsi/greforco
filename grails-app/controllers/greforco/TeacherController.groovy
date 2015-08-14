@@ -35,6 +35,7 @@ class TeacherController {
          println "pegou os dados"
         if (teacher != null) {
             def id = teacher.id
+            flash.message = 'Voce ja e um professor, mantenha seu perfil atualizado'
             redirect action: "show", id: id, method: "GET"
         } 
         
@@ -63,6 +64,7 @@ class TeacherController {
             teacherInstance.user = user
            
             teacherInstance.save flush:true
+            springSecurityService.clearCachedRequestmaps()
             }catch(Exception exp){
                 teacherInstance.errors.reject(
                     'teacherInstance.user.id.inuse',

@@ -8,21 +8,25 @@
 	</head>
 
 ${sec.username()}
-<sec:ifAllGranted roles= "ROLE_PROF">
+<sec:ifAnyGranted roles= "ROLE_PROF">
 
 <g:link controller='course' action="create">    
 	<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
 </g:link>
-</sec:ifAllGranted>
+</sec:ifAnyGranted>
+
+<sec:ifAnyGranted roles= "ROLE_USER">
 
 
 %{-- /*info para quem estiver logado */ --}%
-<sec:ifAllGranted roles="ROLE_USER">
+<sec:ifNotGranted  roles="ROLE_PROF">
 
 <g:link controller='teacher' action="create">    
 	<input type="button"  class="btn btn-default" value="Torne-se um professor" class="button"/> 
 </g:link>
-</sec:ifAllGranted>
+</sec:ifNotGranted >
+
+</sec:ifAnyGranted>
 
 
 
