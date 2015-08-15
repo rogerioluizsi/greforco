@@ -14,7 +14,7 @@
        				Sua conta foi criada com sucesso. Use seu Email para fazer login.
       			</div>		 		
 			</div>		
-			<a href="${createLink(uri: '/')}" class="btn btn-info" role="button">Login</a>
+			<a href="${createLink(uri: '/login/auth')}" class="btn btn-info" role="button">Login</a>
 		</div>
 		<div class="col-md-3"></div>
 	</div>
