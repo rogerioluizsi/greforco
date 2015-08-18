@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list course">
 			
+				<g:if test="${courseInstance?.teacher}">
+				<li class="fieldcontain">
+					<span id="teacher-label" class="property-label"><g:message code="course.teacher.label" default="Teacher" /></span>
+					
+						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${courseInstance?.teacher?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${courseInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="course.dateCreated.label" default="Date Created" /></span>
@@ -68,29 +77,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${courseInstance?.teacher}">
-				<li class="fieldcontain">
-					<span id="teacher-label" class="property-label"><g:message code="course.teacher.label" default="Teacher" /></span>
-					
-						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${courseInstance?.teacher?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${courseInstance?.value}">
 				<li class="fieldcontain">
 					<span id="value-label" class="property-label"><g:message code="course.value.label" default="Value" /></span>
 					
 						<span class="property-value" aria-labelledby="value-label"><g:fieldValue bean="${courseInstance}" field="value"/></span>
-					
-				</li>
-				</g:if>
-				
-				<g:if test="${courseInstance?.teacher}">
-				<li class="fieldcontain">
-					<span id="user-label" class="property-label"><g:message code="course.teacher.label" default="Teacher" /></span>
-					
-						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${courseInstance?.teacher?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

@@ -7,7 +7,7 @@
 		<g:message code="matter.areaofknowledge.label" default="Areaofknowledge" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="areaofknowledge" name="areaofknowledge.id" from="${greforco.Areaofknowledge.list()}" optionKey="id" optionValue="${{ areaofknowledge -> "${areaofknowledge.id} - ${areaofknowledge.name}" }}" required="" value="${matterInstance?.areaofknowledge?.id}" class="many-to-one"/>
+	<g:select id="areaofknowledge" name="areaofknowledge.id" from="${greforco.Areaofknowledge.list()}" optionKey="id" required="" value="${matterInstance?.areaofknowledge?.id}" class="many-to-one"/>
 
 </div>
 

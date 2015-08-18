@@ -24,12 +24,13 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="teacher.user.label" default="User" /></th>
+					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'teacher.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="formation" title="${message(code: 'teacher.formation.label', default: 'Formation')}" />
 					
 						<g:sortableColumn property="university" title="${message(code: 'teacher.university.label', default: 'University')}" />
-						<g:sortableColumn property="user" title="${message(code: 'teacher.user.label', default: 'User')}" />
 					
 					</tr>
 				</thead>
@@ -37,13 +38,13 @@
 				<g:each in="${teacherInstanceList}" status="i" var="teacherInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${teacherInstance.id}">${fieldValue(bean: teacherInstance, field: "dateCreated")}</g:link></td>
+						<td><g:link action="show" id="${teacherInstance.id}">${fieldValue(bean: teacherInstance, field: "user")}</g:link></td>
+					
+						<td><g:formatDate date="${teacherInstance.dateCreated}" /></td>
 					
 						<td>${fieldValue(bean: teacherInstance, field: "formation")}</td>
 					
 						<td>${fieldValue(bean: teacherInstance, field: "university")}</td>
-
-						<td>${fieldValue(bean: teacherInstance, field: "user")}</td>
 					
 					</tr>
 				</g:each>

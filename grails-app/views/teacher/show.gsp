@@ -15,7 +15,6 @@
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
-			
 		</div>
 		<div id="show-teacher" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -23,6 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list teacher">
+			
+				<g:if test="${teacherInstance?.user}">
+				<li class="fieldcontain">
+					<span id="user-label" class="property-label"><g:message code="teacher.user.label" default="User" /></span>
+					
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${teacherInstance?.user?.id}">${teacherInstance?.user?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${teacherInstance?.dateCreated}">
 				<li class="fieldcontain">
@@ -50,14 +58,8 @@
 					
 				</li>
 				</g:if>
-
-			</ol>
-			<sec:ifAllGranted roles= "ROLE_PROF">
 			
-					<g:link controller='course' action="create", id="${teacherInstance}">    
-					<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
-					</g:link>
-			</sec:ifAllGranted>
+			</ol>
 			<g:form url="[resource:teacherInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${teacherInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

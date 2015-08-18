@@ -24,15 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="name" title="${message(code: 'student.name.label', default: 'Name')}" />
+						<g:sortableColumn property="whatsapp" title="${message(code: 'student.whatsapp.label', default: 'Whatsapp')}" />
 					
-						<g:sortableColumn property="email" title="${message(code: 'student.email.label', default: 'E-mail')}" />
+						<g:sortableColumn property="gender" title="${message(code: 'student.gender.label', default: 'Gender')}" />
 					
-						<g:sortableColumn property="cpf" title="${message(code: 'student.cpf.label', default: 'Cpf')}" />
+						<g:sortableColumn property="scholarity" title="${message(code: 'student.scholarity.label', default: 'Scholarity')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'student.dateCreated.label', default: 'Date Created')}" />
+						<th><g:message code="student.user.label" default="User" /></th>
 					
-						
+						<g:sortableColumn property="fone" title="${message(code: 'student.fone.label', default: 'Fone')}" />
+					
+						<g:sortableColumn property="skype" title="${message(code: 'student.skype.label', default: 'Skype')}" />
 					
 					</tr>
 				</thead>
@@ -40,15 +42,17 @@
 				<g:each in="${studentInstanceList}" status="i" var="studentInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${studentInstance.id}">${fieldValue(bean: studentInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${studentInstance.id}">${fieldValue(bean: studentInstance, field: "whatsapp")}</g:link></td>
 					
-						<td>${fieldValue(bean: studentInstance, field: "email")}</td>
+						<td>${fieldValue(bean: studentInstance, field: "gender")}</td>
 					
-						<td>${fieldValue(bean: studentInstance, field: "cpf")}</td>
+						<td>${fieldValue(bean: studentInstance, field: "scholarity")}</td>
 					
-						<td><g:formatDate date="${studentInstance.dateCreated}" /></td>
+						<td>${fieldValue(bean: studentInstance, field: "user")}</td>
 					
+						<td>${fieldValue(bean: studentInstance, field: "fone")}</td>
 					
+						<td>${fieldValue(bean: studentInstance, field: "skype")}</td>
 					
 					</tr>
 				</g:each>

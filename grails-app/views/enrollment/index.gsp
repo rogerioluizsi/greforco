@@ -24,15 +24,15 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="evaluation" title="${message(code: 'enrollment.evaluation.label', default: 'Evaluation')}" />
+					
+						<th><g:message code="enrollment.student.label" default="Student" /></th>
+					
 						<th><g:message code="enrollment.course.label" default="Course" /></th>
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'enrollment.dateCreated.label', default: 'Date Created')}" />
 					
-						<g:sortableColumn property="evaluation" title="${message(code: 'enrollment.evaluation.label', default: 'Evaluation')}" />
-					
 						<g:sortableColumn property="hours" title="${message(code: 'enrollment.hours.label', default: 'Hours')}" />
-					
-						<th><g:message code="enrollment.student.label" default="Student" /></th>
 					
 					</tr>
 				</thead>
@@ -40,15 +40,15 @@
 				<g:each in="${enrollmentInstanceList}" status="i" var="enrollmentInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${enrollmentInstance.id}">${fieldValue(bean: enrollmentInstance, field: "course")}</g:link></td>
+						<td><g:link action="show" id="${enrollmentInstance.id}">${fieldValue(bean: enrollmentInstance, field: "evaluation")}</g:link></td>
+					
+						<td>${fieldValue(bean: enrollmentInstance, field: "student")}</td>
+					
+						<td>${fieldValue(bean: enrollmentInstance, field: "course")}</td>
 					
 						<td><g:formatDate date="${enrollmentInstance.dateCreated}" /></td>
 					
-						<td>${fieldValue(bean: enrollmentInstance, field: "evaluation")}</td>
-					
 						<td>${fieldValue(bean: enrollmentInstance, field: "hours")}</td>
-					
-						<td>${fieldValue(bean: enrollmentInstance, field: "student")}</td>
 					
 					</tr>
 				</g:each>

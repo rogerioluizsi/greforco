@@ -1,280 +1,597 @@
-/** 
- * CSS fix for the logo & brand in the topbar/navbar section
- */
+/* FONT STACK */
+body,
+input, select, textarea {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.1;
+}
+
+/* BASE LAYOUT */
+
+html {
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
+	background-image: linear-gradient(top, #aaa, #ddd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
+	background-repeat: no-repeat;
+	height: 100%;
+	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+html.no-cssgradients {
+	background-color: #aaa;
+}
+
+.ie6 html {
+	height: 100%;
+}
+
+html * {
+	margin: 0;
+}
 
 body {
-	padding-top: 50px;
+	background: #ffffff;
+	color: #333333;
+	margin: 0 auto;
+	max-width: 975px;
+	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
+	   -moz-box-shadow: 0 0 0.3em #255b17;
+	-webkit-box-shadow: 0 0 0.3em #255b17;
+	        box-shadow: 0 0 0.3em #255b17;
 }
 
-.navbar img.logo	{ 
-/*	max-height: 20px;  */
-	margin-top: -3px;
-}
-.navbar .brand		{ padding: 10px 20px 10px 20px; }
-.navbar .version	{ font-size: 60%; line-height: 60%; }
-.navbar-inverse .navbar-inner {
-    background-image: -moz-linear-gradient(center top , #444444, #111111);
-}
-/* Bootstrap 3 fixes */
-.navbar-brand {
-/* 	margin-left: 0px; */
-	line-height: 18px;
+#grailsLogo {
+	background-color: #CCCCCC;
 }
 
-.navbar-form {
-    margin:	0;
-    padding-left:	0px;
-    padding-bottom:	0px;
-    padding-top:	8px;
+/* replace with .no-boxshadow body if you have modernizr available */
+.ie6 body,
+.ie7 body,
+.ie8 body {
+	border-color: #255b17;
+	border-style: solid;
+	border-width: 0 1px;
 }
 
-.navbar-form .nav-search {
-    margin-top:	4px;
-	height: 26px;
+.ie6 body {
+	height: 100%;
 }
 
-.dropdown-menu .form-container {
-	padding: 15px 15px 10px 15px; 
+a:link, a:visited, a:hover {
+	color: #48802c;
 }
-.dropdown-menu .button-container {
-	padding: 1px 15px 10px 15px; 
+
+a:hover, a:active {
+	outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
 }
-.dropdown-menu .form-container form {
+
+h1 {
+	color: #48802c;
+	font-weight: normal;
+	font-size: 1.25em;
+	margin: 0.8em 0 0.3em 0;
+}
+
+ul {
 	padding: 0;
-	margin:  0; 
-}
-.dropdown-menu .form-container form label {
-	color: #999;
-}
-.modal form {
-	margin-bottom: 0;
-}
-form p:last-child {
-	margin-bottom: 0;
-}
-form p:last-child input {
-	margin-bottom: 0;
-}
-.modal form div:last-child{
-	margin-bottom: 0;
-}
-.modal-header h3 {
-	color: #555555;
-}
-/** 
- * CSS for the Header section (blue background, etc.)
- */
-
-.jumbotron {
-    margin-bottom: 0px;
 }
 
-.page-header{
-	  background-color: #eee;
-	  margin: 0px !important;
+img {
+	border: 0;
 }
 
-#Header {
-/* 	background-color: #049cd9; */
-/* 	background-repeat: no-repeat; */
-/* 	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
-/* 	background-image: -webkit-linear-gradient(#004D9F, #049cd9); */
-/* 	background-image: -moz-linear-gradient(#004D9F, #049cd9); */
-/* 	background-image: -o-linear-gradient(top, #004D9F, #049cd9); */
-/* 	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
-/* 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); IE8 and down */
-	
-/* 	margin: 40px 0 0 0; */
+/* GENERAL */
+
+#grailsLogo a {
+	display: inline-block;
+	margin: 1em;
 }
 
-#Header .inner {
-	background: transparent url(../images/grid-18px.png) top center;
-	padding: 60px 0;
-	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
-			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+.content {
 }
-#Header .title		{ 
-/* 	font-size: 72px;  */
-/* 	line-height: 72px;  */
-/* 	font-weight: normal;  */
-/* 	text-decoration: none;  */
-	text-align: center; 
-/* 	color: #fff;  */
+
+.content h1 {
+	border-bottom: 1px solid #CCCCCC;
+	margin: 0.8em 1em 0.3em;
+	padding: 0 0.25em;
 }
-#Header .lead		{ font-size: 18px; line-height: 18px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
+
+.scaffold-list h1 {
+	border: none;
+}
+
+.footer {
+	background: #13558A;
+	color: #ffffff;
+	clear: both;
+	font-size: 0.8em;
+	margin-top: 1.5em;
+	padding: 1em;
+	min-height: 1em;
+}
+
+.footer a {
+	color: #ffffff;
+}
+
+.spinner {
+	background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
+	height: 16px;
+	width: 16px;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+	top: 0;
+	text-indent: -9999px;
+}
+
+/* NAVIGATION MENU */
 
 
-footer {
-	margin-top: 70px;
+.nav {
+	/* background-color: #efefef; */
+	padding: 0.5em 0.75em;
+	/*   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
+	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
+	        box-shadow: 0 0 3px 1px #aaaaaa; */
+	zoom: 1;
 }
-.unstyled {
-	list-style-type: none;
+
+.nav ul {
+	overflow: hidden;
 	padding-left: 0;
+	zoom: 1;
 }
 
-@media (max-width: 980px) {
-	body {
-		padding-top: 0px;
-	}
-	#Header {
-		margin: 0px -20px 0px -20px;
-	}
-	#Header .inner {
-		padding: 80px 20px;
-	}
-	footer {
-		min-width: 0;
-	}
-	.navbar-fixed-top {
-		position: static;
-    	margin-bottom: 0px !important;
-	}
+.nav li {
+	display: block;
+	float: left;
+	list-style-type: none;
+	margin-right: 0.5em;
+	padding: 0;
 }
 
-/* 
- * Slight modification to Bootstrap in order to improve presentation 
- */
-
-#Content {
-	padding-top: 1em;
+.nav a {
+	color: #666666;
+	display: block;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
 }
 
-section.first {
-	padding-top: 0px;
+.nav a:active, .nav a:visited {
+	color: #666666;
 }
 
-/*
- * Alternating table row colors
- */
+.nav a:focus, .nav a:hover {
+	background-color: #999999;
+	color: #ffffff;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
+
+.nav a.home, .nav a.list, .nav a.create {
+	background-position: 0.7em center;
+	background-repeat: no-repeat;
+	text-indent: 25px;
+}
+
+.nav a.home {
+	background-image: url(../images/skin/house.png);
+}
+
+.nav a.list {
+	background-image: url(../images/skin/database_table.png);
+}
+
+.nav a.create {
+	background-image: url(../images/skin/database_add.png);
+}
+
+/* CREATE/EDIT FORMS AND SHOW PAGES */
+
+fieldset,
+.property-list {
+	margin: 0.6em 1.25em 0 1.25em;
+	padding: 0.3em 1.8em 1.25em;
+	position: relative;
+	zoom: 1;
+	border: none;
+}
+
+.property-list .fieldcontain {
+	list-style: none;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.fieldcontain {
+	margin-top: 1em;
+}
+
+.fieldcontain label,
+.fieldcontain .property-label {
+	color: #666666;
+	text-align: right;
+	width: 25%;
+}
+
+.fieldcontain .property-label {
+	float: left;
+}
+
+.fieldcontain .property-value {
+	display: block;
+	margin-left: 27%;
+}
+
+label {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.25em 0 0;
+}
+
+input, select, textarea {
+	background-color: #fcfcfc;
+	border: 1px solid #cccccc;
+	font-size: 1em;
+	padding: 0.2em 0.4em;
+}
+
+select {
+	padding: 0.2em 0.2em 0.2em 0;
+}
+
+select[multiple] {
+	vertical-align: top;
+}
+
+textarea {
+	width: 250px;
+	height: 150px;
+	overflow: auto; /* IE always renders vertical scrollbar without this */
+	vertical-align: top;
+}
+
+input[type=checkbox], input[type=radio] {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+}
+
+input:focus, select:focus, textarea:focus {
+	background-color: #ffffff;
+	border: 1px solid #eeeeee;
+	outline: 0;
+	   -moz-box-shadow: 0 0 0.5em #ffffff;
+	-webkit-box-shadow: 0 0 0.5em #ffffff;
+	        box-shadow: 0 0 0.5em #ffffff;
+}
+
+.required-indicator {
+	color: #48802C;
+	display: inline-block;
+	font-weight: bold;
+	margin-left: 0.3em;
+	position: relative;
+	top: 0.1em;
+}
+
+ul.one-to-many {
+	display: inline-block;
+	list-style-position: inside;
+	vertical-align: top;
+}
+
+.ie6 ul.one-to-many, .ie7 ul.one-to-many {
+	display: inline;
+	zoom: 1;
+}
+
+ul.one-to-many li.add {
+	list-style-type: none;
+}
+
+/* EMBEDDED PROPERTIES */
+
+fieldset.embedded {
+	background-color: transparent;
+	border: 1px solid #CCCCCC;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	   -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+fieldset.embedded legend {
+	margin: 0 1em;
+}
+
+/* MESSAGES AND ERRORS */
+
+.errors,
+.message {
+	font-size: 0.8em;
+	line-height: 2;
+	margin: 1em 2em;
+	padding: 0.25em;
+}
+
+.message {
+	background: #f3f3ff;
+	border: 1px solid #b2d1ff;
+	color: #006dba;
+	   -moz-box-shadow: 0 0 0.25em #b2d1ff;
+	-webkit-box-shadow: 0 0 0.25em #b2d1ff;
+	        box-shadow: 0 0 0.25em #b2d1ff;
+}
+
+.errors {
+	background: #fff3f3;
+	border: 1px solid #ffaaaa;
+	color: #cc0000;
+	   -moz-box-shadow: 0 0 0.25em #ff8888;
+	-webkit-box-shadow: 0 0 0.25em #ff8888;
+	        box-shadow: 0 0 0.25em #ff8888;
+}
+
+.errors ul,
+.message {
+	padding: 0;
+}
+
+.errors li {
+	list-style: none;
+	background: transparent url(../images/skin/exclamation.png) 0.5em 50% no-repeat;
+	text-indent: 2.2em;
+}
+
+.message {
+	background: transparent url(../images/skin/information.png) 0.5em 50% no-repeat;
+	text-indent: 2.2em;
+}
+
+/* form fields with errors */
+
+.error input, .error select, .error textarea {
+	background: #fff3f3;
+	border-color: #ffaaaa;
+	color: #cc0000;
+}
+
+.error input:focus, .error select:focus, .error textarea:focus {
+	   -moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
+	        box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
+
+input:invalid, select:invalid, textarea:invalid {
+	background: #fff3f3;
+	border-color: #ffaaaa;
+	color: #cc0000;
+}
+
+input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+	   -moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
+	        box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* TABLES */
+
+table {
+	border-top: 1px solid #DFDFDF;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+tr {
+	border: 0;
+}
+
+tr>td:first-child, tr>th:first-child {
+	padding-left: 1.25em;
+}
+
+tr>td:last-child, tr>th:last-child {
+	padding-right: 1.25em;
+}
+
+td, th {
+	line-height: 1.5em;
+	padding: 0.5em 0.6em;
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	background-color: #efefef;
+	background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
+	    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
+	color: #666666;
+	font-weight: bold;
+	line-height: 1.7em;
+	padding: 0.2em 0.6em;
+}
+
+thead th {
+	white-space: nowrap;
+}
+
+th a {
+	display: block;
+	text-decoration: none;
+}
+
+th a:link, th a:visited {
+	color: #666666;
+}
+
+th a:hover, th a:focus {
+	color: #333333;
+}
+
+th.sortable a {
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 1.1em;
+}
+
+th.asc a {
+	background-image: url(../images/skin/sorted_asc.gif);
+}
+
+th.desc a {
+	background-image: url(../images/skin/sorted_desc.gif);
+}
 
 .odd {
-	background: #f0f0f0;
+	background: #f7f7f7;
 }
+
 .even {
 	background: #ffffff;
 }
 
-/*
- * Improve presentation of multiple alerts
- */
-
-.alert ul {
-	margin-left: 0;
-	margin-bottom: 0;
-	padding-top:6px;
-	text-decoration: none;	
-	list-style-type: none;
-}
-.alert li {
-	margin-bottom: 6px;
-	text-decoration: none;	
-	list-style-type: none;
+th:hover, tr:hover {
+	background: #E1F2B6;
 }
 
-/*
- * Improve presentation of call to actions on frontpage
- */
+/* PAGINATION */
 
-.icon-image-huge:before {
-    font-size:		120px;
-    line-height:	120px;
-}
-
-.center {
-    text-align:		center;
-    margin: 0 auto;
-}
-
-/*
- * Big Messages (Errors, etc.)
- */
- section#Error {
-	padding-top:0;	
-}
-.big-message {
-    color: #5A5A5A;
-    margin: 8em 0;
-    text-align: center;
-}
-.big-message h1 {
-    font-size: 120px;
-    font-weight: 500;
-    letter-spacing: -1px;
-    line-height: 1em;
-    margin: 0.0em 0 0.5em;
-}
-.big-message h2 {
-    font-size: 30px;
-	font-weight: 200;
-    margin: 1.0em 0 0.5em;
-}
-.big-message p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 1.0em 0 0.5em;
-}
-.big-message .actions {
-    margin: 5.0em 0 2.0em 0;
-}
-.big-message .actions a {
-    margin: 0 1.0em;
-	text-decoration: none;
+.pagination {
+	border-top: 0;
+	margin: 0;
+	padding: 0.3em 0.2em;
+	text-align: center;
+	   -moz-box-shadow: 0 0 3px 1px #AAAAAA;
+	-webkit-box-shadow: 0 0 3px 1px #AAAAAA;
+	        box-shadow: 0 0 3px 1px #AAAAAA;
+	background-color: #EFEFEF;
 }
 
-/**
- * Small correction for the radio-button like checkbox switch
- */
-.radiocheckbox {
-	width: 206px;
+.pagination a,
+.pagination .currentStep {
+	color: #666666;
 	display: inline-block;
-	margin-top: 2px;
-	margin-right: 14px;
+	margin: 0 0.1em;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
 }
 
-.frontpageImage {
-	height: 100px;
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+	background-color: #999999;
+	color: #ffffff;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
+.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
+.no-borderradius .pagination .currentStep {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
 
-/* .margin-top-none		{ margin-top: 0em; } */
-/* .margin-top-mini		{ margin-top: 0.5em; } */
-/* .margin-top-small		{ margin-top: 1em; } */
-/* .margin-top-medium		{ margin-top: 2em; } */
-/* .margin-top-large		{ margin-top: 4em; } */
-/* .margin-top-xlarge		{ margin-top: 8em; } */
+/* ACTION BUTTONS */
 
-/* .margin-bottom-none		{ margin-bottom: 0em; } */
-/* .margin-bottom-mini		{ margin-bottom: 0.5em; } */
-/* .margin-bottom-small	{ margin-bottom: 1em; } */
-/* .margin-bottom-medium	{ margin-bottom: 2em; } */
-/* .margin-bottom-large	{ margin-bottom: 4em; } */
-/* .margin-bottom-xlarge	{ margin-bottom: 8em; } */
+.buttons {
+	background-color: #efefef;
+	overflow: hidden;
+	padding: 0.3em;
+	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
+	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
+	        box-shadow: 0 0 3px 1px #aaaaaa;
+	margin: 0.1em 0 0 0;
+	border: none;
+}
 
-.margin-top-none		{ margin-top:  0px; }
-.margin-top-mini		{ margin-top:  2px; }
-.margin-top-small		{ margin-top:  5px; }
-.margin-top-medium		{ margin-top: 10px; }
-.margin-top-large		{ margin-top: 15px; }
-.margin-top-xlarge		{ margin-top: 20px; }
+.buttons input,
+.buttons a {
+	background-color: transparent;
+	border: 0;
+	color: #666666;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.25em 0;
+	overflow: visible;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
 
-.margin-bottom-none		{ margin-bottom:  0px; }
-.margin-bottom-mini		{ margin-bottom:  2px; }
-.margin-bottom-small	{ margin-bottom:  5px; }
-.margin-bottom-medium	{ margin-bottom: 10px; }
-.margin-bottom-large	{ margin-bottom: 15px; }
-.margin-bottom-xlarge	{ margin-bottom: 20px; }
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+}
 
-.padding-left-none		{ padding-left:  0px; }
-.padding-left-mini		{ padding-left:  2px; }
-.padding-left-small		{ padding-left:  5px; }
-.padding-left-medium	{ padding-left: 10px; }
-.padding-left-large		{ padding-left: 15px; }
-.padding-left-xlarge	{ padding-left: 20px; }
+.buttons input:hover, .buttons input:focus,
+.buttons a:hover, .buttons a:focus {
+	background-color: #999999;
+	color: #ffffff;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	   -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
 
-.padding-right-none		{ padding-right:  0px; }
-.padding-right-mini		{ padding-right:  2px; }
-.padding-right-small	{ padding-right:  5px; }
-.padding-right-medium	{ padding-right: 10px; }
-.padding-right-large	{ padding-right: 15px; }
-.padding-right-xlarge	{ padding-right: 20px; }
+.no-borderradius .buttons input:hover, .no-borderradius .buttons input:focus,
+.no-borderradius .buttons a:hover, .no-borderradius .buttons a:focus {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
+
+.buttons .delete, .buttons .edit, .buttons .save {
+	background-position: 0.7em center;
+	background-repeat: no-repeat;
+	text-indent: 25px;
+}
+
+.ie6 .buttons input.delete, .ie6 .buttons input.edit, .ie6 .buttons input.save,
+.ie7 .buttons input.delete, .ie7 .buttons input.edit, .ie7 .buttons input.save {
+	padding-left: 36px;
+}
+
+.buttons .delete {
+	background-image: url(../images/skin/database_delete.png);
+}
+
+.buttons .edit {
+	background-image: url(../images/skin/database_edit.png);
+}
+
+.buttons .save {
+	background-image: url(../images/skin/database_save.png);
+}
+
+a.skip {
+	position: absolute;
+	left: -9999px;
+}

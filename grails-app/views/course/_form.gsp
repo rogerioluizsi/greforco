@@ -2,6 +2,15 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} ">
+	<label for="teacher">
+		<g:message code="course.teacher.label" default="Teacher" />
+		
+	</label>
+	<g:select id="teacher" name="teacher.id" from="${greforco.Teacher.list()}" optionKey="id" value="${courseInstance?.teacher?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'description', 'error')} required">
 	<label for="description">
 		<g:message code="course.description.label" default="Description" />
@@ -37,15 +46,6 @@
 	<g:textField name="name" required="" value="${courseInstance?.name}"/>
 
 </div>
-
-%{-- <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} required">
-	<label for="teacher">
-		<g:message code="course.teacher.label" default="Teacher" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="teacher" name="teacher.id" from="${greforco.Teacher.list()}" optionKey="id" required="" value="${courseInstance?.teacher?.id}" class="many-to-one"/>
-
-</div> --}%
 
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'value', 'error')} required">
 	<label for="value">
