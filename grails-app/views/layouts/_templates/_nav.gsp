@@ -15,7 +15,7 @@
     </div>
       <ul class="nav navbar-nav">
           <li><a class="active" data-method="get" href="${createLink(uri: '/')}">Início</a> </li>
-          <li><g:link controller="teachers" action="index">Professores</g:link></li>
+          <li><g:link controller="teacher" action="index">Professores</g:link></li>
           <li><g:link controller="matter" action="index">Materias</g:link></li>
           <li><g:link controller="course" action="index">Aulas</g:link></li>
           <li>

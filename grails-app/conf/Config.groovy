@@ -139,10 +139,11 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll'],
-    //liberar criacao de usuario
+     //liberar criacao de usuario
     '/user/**':         ['permitAll'],
      '/userrole/**':         ['permitAll'],
     '/role/**':         ['permitAll'],
+
 //liberar acesso admin para todos os controladores
     '/areaofknowledge/**':       ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/contact/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
@@ -151,8 +152,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/matter/**':                ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/recommendation/**':        ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/student/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
-    //'/teacher/**':               ['permitAll'],
-    '/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+    '/teacher/**':       ['permitAll'],
+    //'/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
+
+//Permissão de views
 
 
 ]

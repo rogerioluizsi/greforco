@@ -1,4 +1,5 @@
-
+<%@ page import="greforco.Teacher" %>
+<%@ page import="greforco.Student" %>
 
 <html>
 	<head>
@@ -7,28 +8,47 @@
 		<title>Reforco</title>		
 	</head>
 
-${sec.username()}, seja bem vindo! <br><br><br>
-%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
+	<br><br><br>
+	%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
 
-<g:link controller='course' action="create", id="${teacherInstance.id}">    
-	<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
-</g:link>
-</sec:ifAnyGranted> --}%
-Aqui deverao vir as informaçoes e dados que nao dependem da sessao do usuario(proessores, cursos disponiveis) e apenas links para os perfis. Pois todos poderao acessar essa pagina. Toda via, pode haver conteudo dinamico, para os logados e n~ao logados - apenas n pode utilizar dados da sessao. <br><br>
+		<g:link controller='course' action="create", id="${teacherInstance.id}">    
+			<input type="button"  class="btn btn-default" value="Professor, cadastre um curso" class="button"/> 
+		</g:link>
+	</sec:ifAnyGranted> --}%
 
-Quem ainda nao e professor, aparecera um botao pra ele se tornar
 
-<sec:ifAnyGranted roles= "ROLE_USER">
+	<sec:ifAnyGranted roles= "ROLE_USER">
 
-%{-- /*info para quem estiver logado */ --}%
-<sec:ifNotGranted  roles="ROLE_PROF">
+		%{-- /*info para quem estiver logado */ --}%
+		<sec:ifNotGranted  roles="ROLE_PROF">
+			<g:link controller='teacher' action="create">    
+				<input type="button"  class="btn btn-default" value="Torne-se um professor" class="button"/> 
+			</g:link>
+		</sec:ifNotGranted >
 
-<g:link controller='teacher' action="create">    
-	<input type="button"  class="btn btn-default" value="Torne-se um professor" class="button"/> 
-</g:link>
-</sec:ifNotGranted >
+	</sec:ifAnyGranted>
 
-</sec:ifAnyGranted>
+	<g:each in="${teacherInstanceList}" status="i" var="teacherInstance">
+	<div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <blockquote>
+                <p>
+	                <g:link controller="teacher" action="show" id="${teacherInstance?.id}">
+	                	${Student.findByUser(teacherInstance.user).name}
+	                </g:link>
+                </p>
+                <footer>
+                	<span class="property-value" aria-labelledby="formation-label">
+                		${fieldValue(bean: teacherInstance, field: "formation")}
+                	</span> <br> 
+                	<cite title="Source Title">Grande experiência como professor.</cite>
+                </footer>
+            </blockquote>
+        </div>
+            
+    </div>
+</g:each>
+
 
 
 
