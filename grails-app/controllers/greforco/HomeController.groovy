@@ -16,8 +16,11 @@ class HomeController {
         respond Teacher.list(params), model:[teacherInstanceCount: Teacher.count(), profs: Teacher.getAll()]
     }
 
+    def termos(){}
 
+	def sobre(){}
 
+	def funciona(){}
    
     def perfil() {}
     

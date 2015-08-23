@@ -18,12 +18,7 @@
           <li><g:link controller="teacher" action="index">Professores</g:link></li>
           <li><g:link controller="matter" action="index">Materias</g:link></li>
           <li><g:link controller="course" action="index">Aulas</g:link></li>
-          <li>
-              <a href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
-                Contato
-              </a>
-          
-          </li>
+          <li><g:link controller="contact" action="create">Contato</g:link></li>
       </ul>
      
         

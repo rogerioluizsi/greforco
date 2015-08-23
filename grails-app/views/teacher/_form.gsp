@@ -11,7 +11,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: teacherInstance, field: 'university', 'error')} required">
 	<label for="university">
-		<g:message code="teacher.university.label" default="University" />
+		<g:message code="teacher.university.label" default="Universidade" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="university" required="" value="${teacherInstance?.university}"/>

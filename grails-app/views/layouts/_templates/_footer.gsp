@@ -8,8 +8,8 @@
                 <ul>
                     <h2>Quem Somos</h2>
                     <li><a href="/">Home</a></li>
-                    <li><a href="http://reforco.herokuapp.com/pages/sobre">Sobre o Reforço.com</a></li>
-                    <li><a href="http://reforco.herokuapp.com/pages/termos">Termo de uso</a></li>
+                    <li><g:link controller="home" action="sobre">Sobre o Reforço</g:link></li>
+                    <li><g:link controller="home" action="termos">Termo de uso</g:link></li>
                 </ul>
             </div>
             
@@ -27,11 +27,7 @@
                 <ul>
                     <h2>Ajuda</h2>
                     <li><a href="http://reforco.herokuapp.com/pages/como-funciona">Como Funciona</a></li>
-                    <li>
-                        <a href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
-                            Contato
-                        </a>
-                    </li>
+                    <li><g:link controller="contact" action="create">Contato</g:link></li>
                 </ul>
             </div>
             
