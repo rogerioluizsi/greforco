@@ -20,7 +20,35 @@
 
 	<g:render template="/layouts/_templates/banners"/>
 
-	${sec.username()}, seja bem vindo! <br><br><br>
+
+	<div class="row">
+        <div class="col-md-4 text-justify">
+          <h2>Seja um Professor</h2>
+          <p>Se você é um professor, cadastre-se e comece a receber propostas de todo o mundo. A nossa base conta com milhões de alunos de todo o mundo em busca de profissionais como você.</p>
+          
+          <p>
+          	<g:link class="btn btn-default" controller="teachers" action="new">Comece agora »</g:link>
+          </p>
+          
+        </div>
+        <div class="col-md-4 text-justify">
+          <h2>Aluno</h2>
+          <p>Em busca de orientações diversificadas de profissionais de todo o mundo, que possam lhe atender de forma exclusiva? Encontre sua melhor opção hoje mesmo </p>
+          <p>
+            <g:link class="btn btn-default" controller="teachers" action="index">Encontre seu professor »</g:link>
+          </p>
+       </div>
+        <div class="col-md-4 text-justify">
+          <h2>Conheça-nos</h2>
+          <p>O portal Reforço, busca ligar pessoas professores e alunos que buscam independẽncia e flexibilidade no aprendizado. As aulas de reforço permite um atendimento exclusivo que faz toda a adiferença na sua carreira.</p>
+          <p>
+          	<g:link class="btn btn-default" controller="home" action="sobre">Saiba mais »</g:link>
+          </p>
+        </div>
+      </div>
+
+
+	<!-- ${sec.username()}, seja bem vindo! <br><br><br>
 	%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
 
 	<g:link controller='course' action="create", id="${teacherInstance.id}">    
@@ -71,7 +99,7 @@
 
 	<g:link controller='course' action="index">    
 		<input type="button"  class="btn btn-default" value="Veja todos os nossos cursos" class="button"/> 
-	</g:link>
+	</g:link> -->
 
 	<script type="text/javascript">
 		// Activate Carousel

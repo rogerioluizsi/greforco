@@ -9,13 +9,17 @@
         <span class="icon-bar"></span>
       </button>
 
-      <div ><a><asset:image width="163px" height="60px" src="logo.png" alt="Grails"/></a></div>
+      <div>
+        <a>
+          <asset:image width="163px" height="60px" src="logo.png" alt="Grails"/>
+        </a>
+      </div>
 
       <!-- <a class="navbar-brand" data-method="get" href="/"><img alt="Reforço WEB" src="/assets/images/logo.png" width="160" height="55"></a> -->
     </div>
       <ul class="nav navbar-nav">
           <li><a class="active" data-method="get" href="${createLink(uri: '/')}">Início</a> </li>
-          <li><g:link controller="teachers" action="index">Professores</g:link></li>
+          <li><g:link controller="teacher" action="index">Professores</g:link></li>
           <li><g:link controller="matter" action="index">Materias</g:link></li>
           <li><g:link controller="course" action="index">Aulas</g:link></li>
           <li>
@@ -25,6 +29,23 @@
           
           </li>
       </ul>
+
+      <form class="navbar-form navbar-right" role="search">
+         <ul class="nav navbar-nav">
+            <li>
+              <button id="btnentrar" type="button" class="btn btn-primary " style="margin-right: 10px;">
+                <span class="glyphicon glyphicon-user"></span> Entrar 
+              </button>
+            </li>
+        </ul>
+        
+        
+        
+        <!-- <div class="form-group">
+          <input type="text" class="form-control" placeholder="Pesquisar">
+        </div>
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button> -->
+      </form>
      
         
       
