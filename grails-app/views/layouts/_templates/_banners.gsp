@@ -38,7 +38,7 @@
           <!-- <a class="btn btn-primary btn-lg" href="teacher" role="button">Com um total de 6 professores cadastrados em diferentes matérias »</a> -->
         </p>
         <p>
-          <g:link controller="home" action="sobre">Veja quem somos »</g:link>
+          <g:link class="btn btn-primary btn-lg" controller="home" action="sobre">Veja quem somos »</g:link>
           <!-- <a class="btn btn-primary btn-lg" href="home/sobre" role="button">Veja quem somos »</a> -->
         </p>
       </div>
@@ -50,8 +50,16 @@
         <h1>Como Funciona</h1>
         <p>Tenha aulas online com professores particulares de todo o Brasil!</p>
 
-        <p><a class="btn btn-primary btn-lg" href="http://reforco.herokuapp.com/pages/como-funciona" role="button">Entenda como funcionamos »</a></p>
-        <p><a class="btn btn-primary btn-lg" href="http://reforco.herokuapp.com/contacts/new" role="button">Fale conosco »</a></p>
+        <p>
+          <!-- <a class="btn btn-primary btn-lg" href="http://reforco.herokuapp.com/pages/como-funciona" role="button">Entenda como funcionamos »</a> -->
+          <g:link class="btn btn-primary btn-lg" controller="home" action="como">Entenda como funcionamos »</g:link>
+        </p>
+        <p>
+          <a href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
+                Fale conosco »
+              </a>
+          <!-- <a class="btn btn-primary btn-lg" href="http://reforco.herokuapp.com/contacts/new" role="button">Fale conosco »</a> -->
+        </p>
       </div>
     </div>
 
