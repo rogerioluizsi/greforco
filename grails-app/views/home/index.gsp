@@ -27,7 +27,7 @@
           <p>Se você é um professor, cadastre-se e comece a receber propostas de todo o mundo. A nossa base conta com milhões de alunos de todo o mundo em busca de profissionais como você.</p>
           
           <p>
-          	<g:link class="btn btn-default" controller="teachers" action="new">Comece agora »</g:link>
+          	<g:link class="btn btn-default" controller="teacher" action="create">Comece agora »</g:link>
           </p>
           
         </div>
@@ -35,7 +35,7 @@
           <h2>Aluno</h2>
           <p>Em busca de orientações diversificadas de profissionais de todo o mundo, que possam lhe atender de forma exclusiva? Encontre sua melhor opção hoje mesmo </p>
           <p>
-            <g:link class="btn btn-default" controller="teachers" action="index">Encontre seu professor »</g:link>
+            <g:link class="btn btn-default" controller="teacher" action="index">Encontre seu professor »</g:link>
           </p>
        </div>
         <div class="col-md-4 text-justify">
