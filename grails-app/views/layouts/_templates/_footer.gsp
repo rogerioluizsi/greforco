@@ -7,26 +7,26 @@
             <div class="col-md-4">
                 <ul>
                     <h2>Quem Somos</h2>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="http://reforco.herokuapp.com/pages/sobre">Sobre o Reforço.com</a></li>
-                    <li><a href="http://reforco.herokuapp.com/pages/termos">Termo de uso</a></li>
+                    <li><a href="${createLink(uri: '/')}">Home</a></li>
+                    <li><g:link controller="home" action="sobre">Sobre o Reforço.com</g:link></li>
+                    <li><g:link controller="home" action="termos">Termo de uso</g:link></li>
                 </ul>
             </div>
             
             <div class="col-md-4">
                 <ul>
                     <h2>Serviços</h2>
-                    <li><a href="/teachers"></a></li>
-                    <li><a href="/courses">Buscar Aulas</a></li>
-                    <li><a href="/teachers/new">Seja um Professor</a></li>
-                    <li><a href="/matters">Matérias</a></li>
+                    <li><g:link controller="teacher" action="index">Buscar Professores</g:link></li>
+                    <li><g:link controller="course" action="index">Buscar Aulas</g:link></li>
+                    <li><g:link controller="teacher" action="new">Seja um Professor</g:link></li>
+                    <li><g:link controller="matter" action="index">Matérias</g:link></li>
                 </ul>
             </div>
             
             <div class="col-md-4">
                 <ul>
                     <h2>Ajuda</h2>
-                    <li><a href="http://reforco.herokuapp.com/pages/como-funciona">Como Funciona</a></li>
+                    <li><g:link controller="home" action="como">Como Funciona</g:link></li>
                     <li>
                         <a href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
                             Contato

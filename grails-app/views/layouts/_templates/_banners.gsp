@@ -18,10 +18,10 @@
         <p>Suas aulas de reforço agora com mais flexibilidade e qualidade!</p>
 
         <p>
-          <a class="btn btn-primary btn-lg" href="teachers" role="button">Encontre seu professor »</a>
+          <g:link class="btn btn-primary btn-lg" controller="teacher" action="index">Encontre seu professor »</g:link>
         </p>
         <p>
-          <a class="btn btn-primary btn-lg" href="/teachers/new" role="button">Seja um professor »</a>
+          <g:link class="btn btn-primary btn-lg" controller="teacher" action="create">Seja um professor »</g:link>
         </p>
       </div>
       
@@ -33,8 +33,14 @@
         <h1>Aulas Particulares</h1>
         <p>Somos um dos maiores portais de aulas particulares do Brasil!</p>
 
-        <p><a class="btn btn-primary btn-lg" href="teachers" role="button">Com um total de 6 professores cadastrados em diferentes matérias »</a></p>
-        <p><a class="btn btn-primary btn-lg" href="home/sobre" role="button">Veja quem somos »</a></p>
+        <p>
+          <g:link class="btn btn-primary btn-lg" controller="teacher" action="index">Com um total de 6 professores cadastrados em diferentes matérias »</g:link>
+          <!-- <a class="btn btn-primary btn-lg" href="teacher" role="button">Com um total de 6 professores cadastrados em diferentes matérias »</a> -->
+        </p>
+        <p>
+          <g:link controller="home" action="sobre">Veja quem somos »</g:link>
+          <!-- <a class="btn btn-primary btn-lg" href="home/sobre" role="button">Veja quem somos »</a> -->
+        </p>
       </div>
     </div>
 
