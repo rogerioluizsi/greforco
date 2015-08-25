@@ -30,20 +30,58 @@
 
       <g:form class="navbar-form navbar-right" role="search" url="[action:'auth',controller:'login']" method="get">
       <!-- <form class="navbar-form navbar-right" role="search"> -->
-         <ul class="nav navbar-nav">
+
+        <div class="dropdown">
+              <button id="btnentrar" class="btn btn-primary dropdown-toggle" style="margin-right: 10px;" type="button" data-toggle="dropdown" aria-expanded="false" 
+              <g:if test="${(!sec.username())}">
+              <%= "onclick=location.href='${createLink(controller:'login',action:'auth')}'" %>
+              </g:if>
+              >
+                 <span class="glyphicon glyphicon-user"></span>
+
+                 <g:if test="${(sec.username())}">
+                   <%= sec.username()%>
+                   <span class="caret"></span>
+                 </g:if>
+                 <g:else>
+                   <%="Entrar"%>
+                </g:else>
+                
+              </button>
+              <g:if test="${(sec.username())}">
+                   <ul class="dropdown-menu">
+                      <li>
+                        <g:link controller="home" action="meuperfil">
+                          <i class="glyphicon glyphicon-pencil"></i>
+                          Meu Perfil
+                        </g:link>
+                      </li>
+                      <!-- <li><a class="active" href="/admin/">Área Administrativa</a> </li> -->
+                      <li>
+                        <a href="${createLink(uri: '/j_spring_security_logout')}">
+                            <i class="glyphicon glyphicon-off"></i>
+                            Sair
+                        </a>
+                      </li>
+                    </ul>
+               </g:if>
+              
+            </div>
+
+         <!-- <ul class="nav navbar-nav">
             <li>
               <button id="btnentrar" type="submit" class="btn btn-primary" style="margin-right: 10px;">
-                <span class="glyphicon glyphicon-user"></span> Entrar 
+                <span class="glyphicon glyphicon-user"></span> 
+
+                <g:if test="${(sec.username())}">
+                   <%= sec.username()%>
+                </g:if>
+                <g:else>
+                   <%="Entrar"%>
+                </g:else>
               </button>
             </li>
-            <!-- <li>
-              <g:link class="btn btn-primary" controller="login" action="auth">
-                <span class="glyphicon glyphicon-user"></span> Entrar 
-              </g:link>
-            </li> -->
-        </ul>
-        
-        <!-- /login/auth -->
+        </ul> -->
         
         <!-- <div class="form-group">
           <input type="text" class="form-control" placeholder="Pesquisar">
