@@ -31,8 +31,12 @@
       <g:form class="navbar-form navbar-right" role="search" url="[action:'auth',controller:'login']" method="get">
       <!-- <form class="navbar-form navbar-right" role="search"> -->
 
-        <div class="dropdown open">
-              <button class="btn btn-primary dropdown-toggle" style="margin-right: 10px;" type="button" data-toggle="dropdown" aria-expanded="true">
+        <div class="dropdown">
+              <button id="btnentrar" class="btn btn-primary dropdown-toggle" style="margin-right: 10px;" type="button" data-toggle="dropdown" aria-expanded="false" 
+              <g:if test="${(!sec.username())}">
+              <%= "onclick=location.href='${createLink(controller:'login',action:'auth')}'" %>
+              </g:if>
+              >
                  <span class="glyphicon glyphicon-user"></span>
 
                  <g:if test="${(sec.username())}">
@@ -54,7 +58,6 @@
                       </li>
                       <!-- <li><a class="active" href="/admin/">Área Administrativa</a> </li> -->
                       <li>
-                        <!-- <a class="active" rel="nofollow" data-method="delete" href="/users/sign_out">Sair</a> -->
                         <a href="${createLink(uri: '/j_spring_security_logout')}">
                             <i class="glyphicon glyphicon-off"></i>
                             Sair
