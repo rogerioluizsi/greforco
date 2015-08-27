@@ -74,6 +74,10 @@
 				</g:form>
 			</sec:ifAnyGranted>
 
+			<sec:ifNotLoggedIn>
+				<a class="btn btn-default" data-method="get" href="../index">Voltar</a>
+			</sec:ifNotLoggedIn>
+
 		</div>
 	</body>
 </html>

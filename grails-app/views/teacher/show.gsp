@@ -10,7 +10,7 @@
 	<body>
 		<a href="#show-teacher" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 
-	%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
+	<sec:ifAnyGranted roles= "ROLE_PROF, ROLE_ADMIN">
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -18,7 +18,7 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-	</sec:ifAnyGranted> --}%
+	</sec:ifAnyGranted>
 
 		<div id="show-teacher" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -73,7 +73,9 @@
 			</g:form>
 		</sec:ifAnyGranted> --}%
 		
+		<sec:ifNotLoggedIn>
 			<a class="btn btn-default" data-method="get" href="../index">Voltar</a>
+		</sec:ifNotLoggedIn>
 		
 
 		</div>

@@ -148,12 +148,12 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 //liberar acesso admin para todos os controladores
     '/areaofknowledge/**':       ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/contact/**':               ['permitAll'],
-    '/course/**':                ['permitAll'],
+    '/course/**':                ['permitAll', 'ROLE_PROF', 'ROLE_ADMIN'],
     '/enrollment/**':            ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/matter/**':                ['permitAll','ROLE_ADMIN'],
     '/recommendation/**':        ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/student/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
-    '/teacher/**':               ['permitAll'],
+    '/teacher/**':               ['permitAll', 'ROLE_ADMIN'],
     //'/teacher/**':               ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
 
 //Permissão de views
