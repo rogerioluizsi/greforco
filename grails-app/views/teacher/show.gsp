@@ -64,14 +64,14 @@
 				</g:if>
 			
 			</ol>
-		%{-- <sec:ifAnyGranted roles= "ROLE_PROF">
+		<sec:ifAnyGranted roles= "ROLE_PROF">
 			<g:form url="[resource:teacherInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${teacherInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
-		</sec:ifAnyGranted> --}%
+		</sec:ifAnyGranted>
 		
 		<sec:ifNotLoggedIn>
 			<a class="btn btn-default" data-method="get" href="../index">Voltar</a>

@@ -1,15 +1,16 @@
 <%@ page import="greforco.Course" %>
 
 
-
-<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} ">
-	<label for="teacher">
-		<g:message code="course.teacher.label" default="Teacher" />
+<sec:ifAnyGranted roles= "ROLE_ADMIN">
+	<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'teacher', 'error')} ">
+		<label for="teacher">
+			<g:message code="course.teacher.label" default="Teacher" />
 		
-	</label>
-	<g:select id="teacher" name="teacher.id" from="${greforco.Teacher.list()}" optionKey="id" value="${courseInstance?.teacher?.id}" class="many-to-one" noSelection="['null': '']"/>
+		</label>
+		<g:select id="teacher" name="teacher.id" from="${greforco.Teacher.list()}" optionKey="id" value="${courseInstance?.teacher?.id}" class="many-to-one" noSelection="['null': '']"/>
 
-</div>
+	</div>
+</sec:ifAnyGranted>
 
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'description', 'error')} required">
 	<label for="description">
