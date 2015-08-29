@@ -2,10 +2,13 @@
 
 <div class="row">
 
-	<div class="col-md-10 center">
+	<div class="col-md-3">
+	</div>
+
+	<div class="col-md-5">
 
 		<fieldset>
-			<legend> Identificaçao </legend>
+			<legend> Cadastro </legend>
 
 			<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'name', 'error')} required">
 				<label for="name" class="control-label">
@@ -24,6 +27,9 @@
 				<g:textField class="form-control" name="email" required="" value="${studentInstance?.email}"/>
 
 			</div>
+		<!-- </fieldset>
+	</div> -->
+
 			<!-- <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'cpf', 'error')} required">
 				<label for="cpf" class="control-label">
 					<g:message code="student.cpf.label" default="Cpf" />
@@ -110,22 +116,29 @@
 				<g:textField class="form-control" name="whatsapp" value="${studentInstance?.whatsapp}"/>
 
 			</div> -->
-
-
-			<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'password', 'error')} required">
-					<label for="password" class="control-label">
-						<g:message code="student.password.label" default="Senha" />
-						<span class="required-indicator">*</span>
-					</label>
-					<g:passwordField class="form-control" type = 'senha'  name="password" required="" />
+		<div class="row">
+			<div class="col-md-6">
+				<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'password', 'error')} required">
+						<label for="password" class="control-label">
+							<g:message code="student.password.label" default="Senha" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:passwordField class="form-control" type = 'senha'  name="password" required="" />
+				</div>
 			</div>
-			<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'confirmPassword', 'error')} required">
-					<label for="confirmPassword" class="control-label">
-						<g:message code="student.confirmPassword.label" default="Confirma Senha" />
-						<span class="required-indicator">*</span>
-					</label>
-					<g:passwordField class="form-control"  type= "confirmPassword" name="confirmPassword" required="" />
+			<div class="col-md-6">
+				<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'confirmPassword', 'error')} required">
+						<label for="confirmPassword" class="control-label">
+							<g:message code="student.confirmPassword.label" default="Confirma Senha" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:passwordField class="form-control"  type= "confirmPassword" name="confirmPassword" required="" />
+				</div>
 			</div>
+			<div class="col-md-12">
+				<p>Ao se cadastrar você concorda com os <g:link controller="home" action="termos">Termos de uso</g:link> do site reforco.com.</p>
+			</div>
+		</div>
 
 			%{-- <div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'user', 'error')} required">
 				<label for="user">
