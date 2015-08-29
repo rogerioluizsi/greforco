@@ -19,7 +19,7 @@ class Student {
 
 
     static constraints = {
-    	cpf(nullable: true, blank:true)
+    	cpf(nullable:true, blank:true)
     	whatsapp(nullable:true, blank:true)
 		gender(nullable:true, blank:true)
 		scholarity(nullable:true, blank:true)

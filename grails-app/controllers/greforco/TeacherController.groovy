@@ -36,7 +36,8 @@ class TeacherController {
         if (teacher != null) {
             def id = teacher.id
             flash.message = "${sec.username()}, " + 'voce ja e um professor, mantenha seu perfil atualizado'
-            redirect action: "show", id: id, method: "GET"
+            redirect action: "index", method: "GET"
+            //redirect action: "show", id: id, method: "GET"
         } 
         
          respond new Teacher(params)
@@ -60,6 +61,7 @@ class TeacherController {
             Role role = Role.findByAuthority("ROLE_PROF") //dar permiss~ao de professor, acumulando a de user
               println "role"
             UserRole userRole = new UserRole(user: user, role: role).save(flush:true, failOnError:true)
+            userRole.save flush:true
               println "app role"
             teacherInstance.user = user
            
@@ -81,7 +83,7 @@ class TeacherController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'teacher.label', default: 'Teacher'), params.id])
-                redirect action: "afterTeacher", method: "GET"
+                redirect action: "index", method: "GET"
             }
             '*' { respond teacherInstance, [status: CREATED] }
         }
