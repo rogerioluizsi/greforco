@@ -131,6 +131,7 @@ grails.plugin.springsecurity.authority.className = 'greforco.Role'
 //    '''
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
+    '/home/meuperfil':  ['ROLE_ADMIN', 'ROLE_USER', 'ROLE_PROF'],
     '/home/**':         ['permitAll'],
 	'/index':           ['permitAll'],
 	'/index.gsp':       ['permitAll'],
