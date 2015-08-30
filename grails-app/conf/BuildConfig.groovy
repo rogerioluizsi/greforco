@@ -75,6 +75,7 @@ grails.project.dependency.resolution = {
         //bootstrap
         compile ":twitter-bootstrap:3.3.4"
         //compile “:lesscss-resources:1.3.3”
+        runtime 'postgresql:postgresql:8.4-702.jdbc3'
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
