@@ -1,4 +1,4 @@
-
+<%@ page import="greforco.Student" %>
 <%@ page import="greforco.Teacher" %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,9 @@
 				<g:each in="${teacherInstanceList}" status="i" var="teacherInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${teacherInstance.id}">${fieldValue(bean: teacherInstance, field: "user")}</g:link></td>
+						<!-- <td><g:link action="show" id="${teacherInstance.id}">${fieldValue(bean: teacherInstance, field: "user")}</g:link></td> -->
+
+						<td><g:link action="show" id="${teacherInstance.id}">${Student.findByUser(teacherInstance.user).name}</g:link></td>
 					
 						<td><g:formatDate date="${teacherInstance.dateCreated}" /></td>
 					
