@@ -55,7 +55,7 @@
           <g:link class="btn btn-primary btn-lg" controller="home" action="como">Entenda como funcionamos »</g:link>
         </p>
         <p>
-          <a href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
+          <a class="btn btn-primary btn-lg" href="#modalContacts" data-toggle="modal" data-target="#modalContacts">
                 Fale conosco »
               </a>
           <!-- <a class="btn btn-primary btn-lg" href="http://reforco.herokuapp.com/contacts/new" role="button">Fale conosco »</a> -->
