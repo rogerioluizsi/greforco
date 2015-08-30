@@ -1,5 +1,6 @@
 
 <%@ page import="greforco.Course" %>
+<%@ page import="greforco.Student" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,7 +28,7 @@
 				<li class="fieldcontain">
 					<span id="teacher-label" class="property-label"><g:message code="course.teacher.label" default="Teacher" /></span>
 					
-						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${courseInstance?.teacher?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="teacher-label"><g:link controller="teacher" action="show" id="${courseInstance?.teacher?.id}">${Student.findByUser(courseInstance.teacher.user).name}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -50,20 +51,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${courseInstance?.evaluation}">
-				<li class="fieldcontain">
-					<span id="evaluation-label" class="property-label"><g:message code="course.evaluation.label" default="Evaluation" /></span>
-					
-						<span class="property-value" aria-labelledby="evaluation-label"><g:fieldValue bean="${courseInstance}" field="evaluation"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${courseInstance?.matter}">
 				<li class="fieldcontain">
 					<span id="matter-label" class="property-label"><g:message code="course.matter.label" default="Matter" /></span>
 					
-						<span class="property-value" aria-labelledby="matter-label"><g:link controller="matter" action="show" id="${courseInstance?.matter?.id}">${courseInstance?.matter?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="matter-label"><g:link controller="matter" action="show" id="${courseInstance?.matter?.id}">${courseInstance?.matter?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
