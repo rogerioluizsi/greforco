@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="areaofknowledge-label" class="property-label"><g:message code="matter.areaofknowledge.label" default="Areaofknowledge" /></span>
 					
-						<span class="property-value" aria-labelledby="areaofknowledge-label"><g:link controller="areaofknowledge" action="show" id="${matterInstance?.areaofknowledge?.id}">${matterInstance?.areaofknowledge?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="areaofknowledge-label"><g:link controller="areaofknowledge" action="show" id="${matterInstance?.areaofknowledge?.id}">${matterInstance?.areaofknowledge?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

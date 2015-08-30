@@ -24,27 +24,27 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="name" title="${message(code: 'matter.name.label', default: 'Name')}" />
+
 						<th><g:message code="matter.areaofknowledge.label" default="Areaofknowledge" /></th>
-					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'matter.dateCreated.label', default: 'Date Created')}" />
-					
+
 						<g:sortableColumn property="description" title="${message(code: 'matter.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="name" title="${message(code: 'matter.name.label', default: 'Name')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'matter.dateCreated.label', default: 'Date Created')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${matterInstanceList}" status="i" var="matterInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+						<td><g:link action="show" id="${matterInstance.id}">${fieldValue(bean: matterInstance, field: "name")}</g:link></td>
 					
-						<td><g:link action="show" id="${matterInstance.id}">${fieldValue(bean: matterInstance, field: "areaofknowledge")}</g:link></td>
-					
-						<td><g:formatDate date="${matterInstance.dateCreated}" /></td>
-					
+						<td><g:link controller="areaofknowledge" action="show" id="${fieldValue(bean: matterInstance, field: 'areaofknowledge.id')}">${fieldValue(bean: matterInstance, field: "areaofknowledge.name")}</g:link></td>
+
 						<td>${fieldValue(bean: matterInstance, field: "description")}</td>
 					
-						<td>${fieldValue(bean: matterInstance, field: "name")}</td>
+						<td><g:formatDate date="${matterInstance.dateCreated}" /></td>
 					
 					</tr>
 				</g:each>

@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="student-label" class="property-label"><g:message code="enrollment.student.label" default="Student" /></span>
 					
-						<span class="property-value" aria-labelledby="student-label"><g:link controller="student" action="show" id="${enrollmentInstance?.student?.id}">${enrollmentInstance?.student?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="student-label"><g:link controller="student" action="show" id="${enrollmentInstance?.student?.id}">${enrollmentInstance?.student?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="course-label" class="property-label"><g:message code="enrollment.course.label" default="Course" /></span>
 					
-						<span class="property-value" aria-labelledby="course-label"><g:link controller="course" action="show" id="${enrollmentInstance?.course?.id}">${enrollmentInstance?.course?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="course-label"><g:link controller="course" action="show" id="${enrollmentInstance?.course?.id}">${enrollmentInstance?.course?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

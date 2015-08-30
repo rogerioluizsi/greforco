@@ -1,6 +1,8 @@
 <%@ page import="greforco.User" %>
 <%@ page import="greforco.Student" %>
 <%@ page import="greforco.Teacher" %>
+<%@ page import="greforco.Course" %>
+<%@ page import="greforco.Enrollment" %>
 
 	<head>
         <meta name="layout" content="main"/>
@@ -9,6 +11,9 @@
         <g:set var="usuario" value="${User.get(id_user)}"/>
         <g:set var="aluno" value="${Student.findByUser(usuario)}"/>
         <g:set var="prof" value="${Teacher.findByUser(usuario)}"/>
+        <g:set var="cursos" value="${Course.findAllByTeacher(prof)}"/>
+        <g:set var="contratadas" value="${Enrollment.findAllByCourseInList(cursos)}"/>
+        <g:set var="contratei" value="${Enrollment.findAllByStudent(aluno)}"/>
         <title>Reforco</title>  
 
     </head>
@@ -35,7 +40,6 @@
 						<div class="panel-body">
 							<div class="container ">
 								<a href="#">
-									<!-- <img class="avatar img-thumbnail " style="margin-left: 10px; width: 90px; height: 90px;" src="/avatars/medium/missing.png" alt="Missing"> -->
 									<asset:image class="avatar img-thumbnail " src="avatar-default.png" alt="default" style="margin-left: 55px; width: 90px; height: 90px;"/>
 								</a>
 							</div>
@@ -81,14 +85,14 @@
 									<!-- <p>Data de Nascimento:  </p> -->
 
 		                            <p>CPF: ${aluno?.cpf} </p>
-		                            <p>Endereço: ${aluno?.addrress}  </p>
+		                            <p>Endereço: ${aluno?.address}  </p>
             					    <p>UF: ${aluno?.state} </p>
             					    <!-- <p>País:  </p>     -->
 		                        </div>
 								<hr>
 
 		                        <div>
-		                        	<sec:access expression="hasRole('ROLE_PROF')">
+		                        	 <g:if test="${(prof)}">
     		                        	<div class="row">
 				                        	<div class="col-md-8">
 				                        		<h3>Sobre o professor</h3>	
@@ -102,7 +106,7 @@
 	        		                        <p>Universidade: ${prof?.university} </p>
 	        		                        <!-- <p>Descrição Pessoal: Apaixonado por dar aula e ensinar.</p> -->
 	        		                        <hr>
-		                        	</sec:access>
+		                        	</g:if>
     		                        	
 		                        </div>
 		                </div>
@@ -113,7 +117,10 @@
 				<div class="col-md-2">
 				
 				<div class="row">
-				    <sec:access expression="hasRole('ROLE_PROF')">
+
+				    
+				    <g:if test="${(prof)}">
+
 						<div class="panel panel-default">
 							
 				            <div class="panel-heading">
@@ -123,13 +130,17 @@
 							<div class="panel-body">
 								
 								<div class="row">
-									<ul>
-										
-											<div class="col-md-12">
-												<li> <a href="/courses/3">Programação Orientada a Objetos</a>
-												<br>
-											</li></div>
-		
+									<ul class="margin15">
+										<div class="col-md-12">
+										<g:each in="${cursos}" status="i" var="curso">
+												<li> 
+													<g:link controller="course" action="show" id="${curso.id}">
+														${fieldValue(bean: curso, field: "name")}
+													</g:link>
+													<!-- <br> -->
+												</li>
+										</g:each>
+										</div>
 									</ul>
 									
 									<div class="content text-center">
@@ -147,16 +158,47 @@
 						            <div class="panel-heading">
 						                <h3 class="panel-title">
 						                	<strong>
-						                    	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed" aria-expanded="false">Ultimas aulas contratadas</a>
+						                    	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed" aria-expanded="false">Minhas aulas contratadas</a>
 						                    </strong>
 						                </h3>
 						            </div>
 						            <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
 						                <div class="panel-body">
-						                    <ul>
-																      	<li>
-																      		 <a href="/enrollments/3">Programação Orientada a Objetos</a>
-																      	</li>	
+						                    <ul class="margin15">
+												<g:each in="${contratadas}" status="i" var="aula">
+												      	<li>
+												      		 <g:link controller="enrollment" action="show" id="${aula.id}">
+
+												      		 <%= aula.course.name %> (<%= aula.hours %>h) 
+
+																<!-- ${fieldValue(bean: aula, field: "course.name")} (${fieldValue(bean: aula, field: "hours")} horas) -->
+															</g:link>
+												      	</li>	
+												</g:each>	
+					                		</ul>	
+						                    
+						                </div>
+						            </div>
+						        </div>
+
+						        <div class="panel panel-default">
+						            <div class="panel-heading">
+						                <h3 class="panel-title">
+						                	<strong>
+						                    	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">Aulas que contratei</a>
+						                    </strong>
+						                </h3>
+						            </div>
+						            <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+						                <div class="panel-body">
+						                    <ul class="margin15">
+										      	<g:each in="${contratei}" status="i" var="aula">
+												      	<li>
+												      		 <g:link controller="enrollment" action="show" id="${aula.id}">
+																<%= aula.course.name %> (<%= aula.hours %>h) 
+															</g:link>
+												      	</li>	
+												</g:each>
 					                		</ul>	
 						                    
 						                </div>
@@ -164,8 +206,41 @@
 						        </div>
 						    </div>
 						</div>
-	
-					</sec:access>
+
+						
+					</g:if>
+					<g:else>
+
+						<div class="bs-example">
+						    <div class="panel-group" id="accordion">
+
+						        <div class="panel panel-default">
+						            <div class="panel-heading">
+						                <h3 class="panel-title">
+						                	<strong>
+						                    	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed" aria-expanded="false">Aulas que contratei</a>
+						                    </strong>
+						                </h3>
+						            </div>
+						            <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+						                <div class="panel-body">
+						                    <ul class="margin15">
+						                    	<g:each in="${contratei}" status="i" var="aula">
+												      	<li>
+												      		 <g:link controller="enrollment" action="show" id="${aula.id}">
+																<%= aula.course.name %> (<%= aula.hours %>h) 
+															</g:link>
+												      	</li>	
+												</g:each>
+					                		</ul>	
+						                    
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+
+					</g:else>
 						
 							
 						

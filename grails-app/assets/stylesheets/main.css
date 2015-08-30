@@ -51,6 +51,10 @@ body {
 	background-color: #CCCCCC;
 }
 
+.margin15 {
+	margin-left: 15px;
+}
+
 /* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
 .ie7 body,

@@ -13,6 +13,7 @@ class Matter {
 		this.description = description
 	}
 
-    static constraints = {
-    }
+	static constraints = {
+		name blank: false, unique: true
+	}
 }

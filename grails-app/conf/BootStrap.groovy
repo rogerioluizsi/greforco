@@ -1,40 +1,50 @@
 import greforco.Role
 import greforco.User
+import greforco.Student
+import greforco.Teacher
 import greforco.UserRole
 import greforco.Areaofknowledge
 import greforco.Matter
 import greforco.Course
+import greforco.Enrollment
+import greforco.Recommendation
 
 
 class BootStrap {
 
    def init = { servletContext ->
     
-
+      // criando ROLE's
       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
       def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
       def profRole = new Role(authority: 'ROLE_PROF').save(flush: true)
 
-      def testUser = new User(username: 'admin', password: 'admin')
-      testUser.save(flush: true)
+      // criando usuarios
+      def admin = new User(username: 'admin', password: 'admin')
+        admin.save(flush: true)
+      //def sAdmin = new Student(user: admin, name: "Admin", cpf:"11111111111")
+      //  sAdmin.save(flush: true)
 
-      def testUser2 = new User(username: 'prof', password: 'prof')
-       testUser2.save(flush: true)
-       
-      def testUser3 = new User(username: 'alu', password: 'alu')
-       testUser3.save(flush: true)
+      def user1 = new User(username: 'paula@reforco.com', password: '123456')
+        user1.save(flush: true)
+      def s1 = new Student(user: user1, name: "Paula Noku", cpf:"22222222222")
+        s1.save(flush: true)
+      def t1 = new Teacher(user: user1, formation: "Sistemas de Informação", university: "Unimontes")
+        t1.save(flush: true)
 
-      def testUser4 = new User(username: 'teste', password: 'teste')
-       testUser3.save(flush: true)
+      def user2 = new User(username: 'tomas@reforco.com', password: '123456')
+        user2.save(flush: true)
+      def s2 = new Student(user: user2, name: "Tomas Turbano Pinto", cpf:"33333333333")
+         s2.save(flush: true)
 
       
       
-      UserRole.create testUser, adminRole, true
+      UserRole.create admin, adminRole, true
       
-      UserRole.create testUser2, profRole, true
-      UserRole.create testUser2, userRole, true
+      UserRole.create user1, profRole, true
+      UserRole.create user1, userRole, true
       
-      UserRole.create testUser3, userRole, true
+      UserRole.create user2, userRole, true
 
 
       // assert User.count() == 1
