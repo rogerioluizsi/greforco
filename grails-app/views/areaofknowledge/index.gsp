@@ -24,9 +24,9 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'areaofknowledge.dateCreated.label', default: 'Date Created')}" />
-					
 						<g:sortableColumn property="name" title="${message(code: 'areaofknowledge.name.label', default: 'Name')}" />
+
+						<g:sortableColumn property="dateCreated" title="${message(code: 'areaofknowledge.dateCreated.label', default: 'Date Created')}" />
 					
 					</tr>
 				</thead>
@@ -34,9 +34,9 @@
 				<g:each in="${areaofknowledgeInstanceList}" status="i" var="areaofknowledgeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
+						<td><g:link action="show" id="${areaofknowledgeInstance.id}">${fieldValue(bean: areaofknowledgeInstance, field: "name")}</g:link></td>
+
 						<td><g:link action="show" id="${areaofknowledgeInstance.id}">${fieldValue(bean: areaofknowledgeInstance, field: "dateCreated")}</g:link></td>
-					
-						<td>${fieldValue(bean: areaofknowledgeInstance, field: "name")}</td>
 					
 					</tr>
 				</g:each>
