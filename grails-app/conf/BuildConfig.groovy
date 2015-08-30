@@ -75,6 +75,9 @@ grails.project.dependency.resolution = {
 
         //bootstrap
         compile ":twitter-bootstrap:3.3.4"
+        //heroku
+        compile ':heroku:1.0.1'
+        compile ':cloud-support:1.0.11'
         //compile “:lesscss-resources:1.3.3”
 
 
