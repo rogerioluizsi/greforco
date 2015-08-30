@@ -1,3 +1,16 @@
+<%@ page import="greforco.User" %>
+<%@ page import="greforco.Student" %>
+<%@ page import="greforco.Teacher" %>
+
+  <head>
+        <g:set var="id_user" value="${sec.loggedInUserInfo(field: 'id')}"/>
+        <g:set var="usuario" value="${User.get(id_user)}"/>
+        <g:set var="aluno" value="${Student.findByUser(usuario)}"/>
+        <g:set var="prof" value="${Teacher.findByUser(usuario)}"/>
+        <title>Reforco</title>  
+
+    </head>
+
 <nav id="nav-menu" class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,7 +53,8 @@
                  <span class="glyphicon glyphicon-user"></span>
 
                  <g:if test="${(sec.username())}">
-                   <%= sec.username()%>
+                   <!-- <%= sec.username()%> -->
+                   <%= aluno?.name %>
                    <span class="caret"></span>
                  </g:if>
                  <g:else>
@@ -50,6 +64,8 @@
               </button>
               <g:if test="${(sec.username())}">
                    <ul class="dropdown-menu">
+                      <li><a><%= (prof) ? "Prof.:" : "Aluno: " %> <%= sec.username()%> </li>
+                      <li class="divider"></li>
                       <li>
                         <g:link controller="home" action="meuperfil">
                           <i class="glyphicon glyphicon-pencil"></i>
