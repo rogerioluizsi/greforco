@@ -3,6 +3,7 @@
 <%@ page import="greforco.Teacher" %>
 <%@ page import="greforco.Course" %>
 <%@ page import="greforco.Enrollment" %>
+<%@ page import="greforco.Recommendation" %>
 
 	<head>
         <meta name="layout" content="main"/>
@@ -14,6 +15,7 @@
         <g:set var="cursos" value="${Course.findAllByTeacher(prof)}"/>
         <g:set var="contratadas" value="${Enrollment.findAllByCourseInList(cursos)}"/>
         <g:set var="contratei" value="${Enrollment.findAllByStudent(aluno)}"/>
+        <g:set var="recomendacoes" value="${Recommendation.findAllByEnrollmentInList(contratei)}"/>
         <title>Reforco</title>  
 
     </head>
@@ -24,7 +26,7 @@
 		<div class="row">
 			
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<h1> ${aluno?.name} </h1>
 					<hr>
 				</div>
@@ -79,7 +81,8 @@
 			                        		<h3>Sobre o usuário</h3>	
 			                        	</div>
 			                            <div class="col-md-4 content text-right">
-											<a href="#modalEditUser" class="btn btn-success btn-xs" style="margin-top: 20px;" data-toggle="modal" data-target="#modalEditUser">Editar</a>
+											<!-- <a href="#modalEditUser" class="btn btn-success btn-xs" style="margin-top: 20px;" data-toggle="modal" data-target="#modalEditUser">Editar</a> -->
+											<g:link controller="user" action="edit" id="${usuario.id}" class="btn btn-success btn-xs" style="margin-top: 20px;">Editar</g:link>
 										</div>
 									</div>
 									<!-- <p>Data de Nascimento:  </p> -->
@@ -98,7 +101,8 @@
 				                        		<h3>Sobre o professor</h3>	
 				                        	</div>
 											<div class="col-md-4 content text-right">
-												<a href="#modalEditTeacher" class="btn btn-success btn-xs" style="margin-top: 20px;" data-toggle="modal" data-target="#modalEditTeacher">Editar</a>
+												<!-- <a href="#modalEditTeacher" class="btn btn-success btn-xs" style="margin-top: 20px;" data-toggle="modal" data-target="#modalEditTeacher">Editar</a> -->
+												<g:link controller="teacher" action="edit" id="${prof.id}" class="btn btn-success btn-xs" style="margin-top: 20px;">Editar</g:link>
 											</div>
 										</div>
 											
@@ -144,7 +148,8 @@
 									</ul>
 									
 									<div class="content text-center">
-										<a href="#modalnewCourse" class="btn btn-success" style="margin-top: 20px;" data-toggle="modal" data-target="#modalnewCourse">Novo Curso</a>
+										<!-- <a href="#modalnewCourse" class="btn btn-success" style="margin-top: 20px;" data-toggle="modal" data-target="#modalnewCourse">Novo Curso</a> -->
+										<g:link controller="course" action="create" class="btn btn-success btn-xs" style="margin-top: 20px;">Novo Curso</g:link>
 									</div>
 								</div>
 							</div>
@@ -258,7 +263,8 @@
 		</div> <!--row 1-->
 		
 		<div class="row">
-			
+
+			<g:render template="/home/_render/sou_aluno"/>
 			
 		</div> <!--row2-->
 		
