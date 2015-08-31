@@ -35,7 +35,13 @@ class RecommendationController {
             return
         }
 
-        recommendationInstance.save flush:true
+        def matricula = Enrollment.get(params['enrollment']['id'])
+        recommendationInstance.enrollment = matricula
+        if (recommendationInstance.save(flush:true)) {
+            matricula.evaluation = "1"
+            matricula.save(flush: true)
+           // redirect controller: "home", action:"meuperfil", method:"GET"
+        }
 
         request.withFormat {
             form multipartForm {

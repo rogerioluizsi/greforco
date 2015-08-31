@@ -7,9 +7,9 @@ class Areaofknowledge {
 	Areaofknowledge(String name) {
 		this()
 		this.namme = name
-		
 	}
 
     static constraints = {
+    	name(blank: false, unique: true)
     }
 }

@@ -5,11 +5,8 @@ class Course {
 	static belongsTo = [matter: Matter, teacher: Teacher]
 
 	String name
-	//String matter
-	//String teacher
 	String description
 	String value
-	//String evaluation
 	Date dateCreated
 
 
@@ -18,7 +15,6 @@ class Course {
 		this.teacher = teacher
 		this.name = name
 		this.description = description
-		//this.evaluation = evaluation
 		this.matter = matter
 		this.value = value 
 	}

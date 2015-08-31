@@ -24,32 +24,36 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="evaluation" title="${message(code: 'enrollment.evaluation.label', default: 'Evaluation')}" />
+						<g:sortableColumn property="id" title="${message(code: 'enrollment.id.label', default: 'Id')}" /> 
 					
 						<th><g:message code="enrollment.student.label" default="Student" /></th>
 					
 						<th><g:message code="enrollment.course.label" default="Course" /></th>
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'enrollment.dateCreated.label', default: 'Date Created')}" />
-					
 						<g:sortableColumn property="hours" title="${message(code: 'enrollment.hours.label', default: 'Hours')}" />
-					
+
+						<g:sortableColumn property="dateCreated" title="${message(code: 'enrollment.dateCreated.label', default: 'Date Created')}" />
+
+						<g:sortableColumn property="evaluation" title="${message(code: 'enrollment.evaluation.label', default: 'Avaliado')}" />
+
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${enrollmentInstanceList}" status="i" var="enrollmentInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${enrollmentInstance.id}">${fieldValue(bean: enrollmentInstance, field: "evaluation")}</g:link></td>
+						<td><g:link action="show" id="${enrollmentInstance.id}">${fieldValue(bean: enrollmentInstance, field: "id")}</g:link></td>
 					
-						<td>${fieldValue(bean: enrollmentInstance, field: "student")}</td>
+						<td>${fieldValue(bean: enrollmentInstance, field: "student.name")}</td>
 					
-						<td>${fieldValue(bean: enrollmentInstance, field: "course")}</td>
-					
-						<td><g:formatDate date="${enrollmentInstance.dateCreated}" /></td>
-					
+						<td>${fieldValue(bean: enrollmentInstance, field: "course.name")}</td>
+
 						<td>${fieldValue(bean: enrollmentInstance, field: "hours")}</td>
 					
+						<td><g:formatDate date="${enrollmentInstance.dateCreated}" /></td>
+
+						<td>${ (fieldValue(bean: enrollmentInstance, field: "evaluation") == "1")? "SIM" : "NÃO"} </td>
+
 					</tr>
 				</g:each>
 				</tbody>
