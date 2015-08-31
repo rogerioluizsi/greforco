@@ -51,12 +51,12 @@
 			</div>
 
 
-			<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'addrress', 'error')} ">
-				<label for="addrress" class="control-label">
-					<g:message code="student.addrress.label" default="Addrress" />
+			<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'address', 'error')} ">
+				<label for="address" class="control-label">
+					<g:message code="student.address.label" default="Address" />
 					%{-- <span class="required-indicator">*</span> --}%
 				</label>
-				<g:textField class="form-control" name="addrress"  value="${studentInstance?.addrress}"/>
+				<g:textField class="form-control" name="address"  value="${studentInstance?.address}"/>
 
 			</div>
 
